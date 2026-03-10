@@ -17,10 +17,9 @@ scroll-behavior:smooth;
 }
 
 body{
-font-family: 'Segoe UI', sans-serif;
+font-family: "Segoe UI", sans-serif;
 background:#0f172a;
 color:white;
-line-height:1.6;
 }
 
 /* NAVBAR */
@@ -29,8 +28,9 @@ nav{
 position:fixed;
 top:0;
 width:100%;
-background:#020617;
-padding:15px 40px;
+background:rgba(2,6,23,0.9);
+backdrop-filter:blur(10px);
+padding:15px 10%;
 display:flex;
 justify-content:space-between;
 align-items:center;
@@ -39,19 +39,20 @@ z-index:1000;
 
 nav h1{
 font-size:20px;
+letter-spacing:1px;
 }
 
 nav ul{
 display:flex;
-list-style:none;
 gap:25px;
+list-style:none;
 }
 
 nav a{
 color:white;
 text-decoration:none;
+opacity:0.7;
 font-size:14px;
-opacity:0.8;
 }
 
 nav a:hover{
@@ -68,55 +69,88 @@ justify-content:center;
 align-items:center;
 text-align:center;
 padding:20px;
+background:linear-gradient(135deg,#7f1d1d,#0f172a);
 }
 
 .hero h2{
-font-size:50px;
+font-size:55px;
 margin-bottom:20px;
 }
 
-.hero p{
-opacity:0.7;
+.hero span{
+color:#22c55e;
 }
 
-/* SECTIONS */
+/* GRID SECTIONS */
 
 section{
-padding:100px 10%;
+padding:120px 10%;
 }
 
 section h2{
-font-size:35px;
-margin-bottom:40px;
+font-size:36px;
+margin-bottom:50px;
+border-left:4px solid #22c55e;
+padding-left:15px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:30px;
 }
 
 /* CARDS */
 
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:30px;
-}
-
 .card{
 background:#1e293b;
 padding:30px;
-border-radius:12px;
-transition:0.3s;
+border-radius:15px;
+transition:0.4s;
+position:relative;
+overflow:hidden;
+}
+
+.card::before{
+content:"";
+position:absolute;
+width:200%;
+height:200%;
+background:linear-gradient(45deg,transparent,#22c55e33,transparent);
+top:-100%;
+left:-100%;
+transform:rotate(25deg);
 }
 
 .card:hover{
-transform:translateY(-5px);
+transform:translateY(-8px);
 background:#334155;
+}
+
+.card h3{
+font-size:20px;
+}
+
+/* DATA STYLE LINES */
+
+.data-bg{
+position:absolute;
+width:100%;
+height:100%;
+background-image:
+linear-gradient(#ffffff08 1px, transparent 1px),
+linear-gradient(90deg,#ffffff08 1px, transparent 1px);
+background-size:40px 40px;
+z-index:-1;
 }
 
 /* FOOTER */
 
 footer{
-text-align:center;
-padding:60px 20px;
 background:#020617;
-margin-top:50px;
+padding:80px 20px;
+text-align:center;
+margin-top:80px;
 }
 
 footer h2{
@@ -128,6 +162,8 @@ margin-bottom:20px;
 </head>
 
 <body>
+
+<div class="data-bg"></div>
 
 <!-- NAVBAR -->
 
@@ -151,9 +187,9 @@ margin-bottom:20px;
 
 <div class="hero" id="presentation">
 
-<h2>Bonjour, je suis</h2>
+<h2>Bonjour, je suis <span></span></h2>
 
-<p>Portfolio</p>
+<p>Étudiant en BUT Science des Données</p>
 
 </div>
 
@@ -205,17 +241,9 @@ margin-bottom:20px;
 
 <div class="grid">
 
-<div class="card">
-<h3>Compétence 1</h3>
-</div>
-
-<div class="card">
-<h3>Compétence 2</h3>
-</div>
-
-<div class="card">
-<h3>Compétence 3</h3>
-</div>
+<div class="card"><h3>Programmation</h3></div>
+<div class="card"><h3>Analyse de données</h3></div>
+<div class="card"><h3>Visualisation</h3></div>
 
 </div>
 
@@ -229,17 +257,9 @@ margin-bottom:20px;
 
 <div class="grid">
 
-<div class="card">
-<h3>Qualité 1</h3>
-</div>
-
-<div class="card">
-<h3>Qualité 2</h3>
-</div>
-
-<div class="card">
-<h3>Qualité 3</h3>
-</div>
+<div class="card"><h3>Qualité 1</h3></div>
+<div class="card"><h3>Qualité 2</h3></div>
+<div class="card"><h3>Qualité 3</h3></div>
 
 </div>
 
@@ -253,17 +273,9 @@ margin-bottom:20px;
 
 <div class="grid">
 
-<div class="card">
-<h3>SAE 1</h3>
-</div>
-
-<div class="card">
-<h3>SAE 2</h3>
-</div>
-
-<div class="card">
-<h3>SAE 3</h3>
-</div>
+<div class="card"><h3>SAE 1</h3></div>
+<div class="card"><h3>SAE 2</h3></div>
+<div class="card"><h3>SAE 3</h3></div>
 
 </div>
 
@@ -288,4 +300,5 @@ margin-bottom:20px;
 </footer>
 
 </body>
+
 </html>
