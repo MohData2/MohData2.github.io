@@ -1,9 +1,449 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-    <title>Mon site</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio — Mohammed</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <h1>Bienvenue sur mon portfolio</h1>
+<div class="window">
+
+  <!-- ── TITLEBAR ──────────────────────────────── -->
+  <div class="titlebar">
+    <div class="mac-dots">
+      <span class="mac-dot red"></span>
+      <span class="mac-dot yellow"></span>
+      <span class="mac-dot green"></span>
+    </div>
+    <span class="titlebar-label">mohammed — portfolio BUT Science des données</span>
+    <div class="titlebar-spacer"></div>
+  </div>
+
+  <!-- ── HEADER NAV ────────────────────────────── -->
+  <header>
+    <div class="logo">Mohammed.</div>
+    <nav>
+      <a href="#presentation">Parcours</a>
+      <a href="#competences">Expertise</a>
+      <a href="#sae">Projets universitaires</a>
+      <a href="#projets">Passeport culturel</a>
+      <a href="#stage">Stage</a>
+      <a href="#contact" class="btn-nav">Contact</a>
+    </nav>
+  </header>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- HERO                                       -->
+  <!-- ══════════════════════════════════════════ -->
+  <section class="hero reveal" id="hero">
+    <div class="hero-text">
+      <span class="badge">BUT Science des données · 2ᵉ année</span>
+      <h1>Bonjour,<br>je suis <em>Mohammed.</em></h1>
+      <p class="hero-sub">Étudiant·e passionné·e par la donnée — de l'analyse exploratoire au modèle prédictif, je transforme des chiffres en décisions concrètes.</p>
+      <div class="hero-tags">
+        <span>Python</span><span>R</span><span>SQL</span>
+        <span>Machine Learning</span><span>Data Viz</span>
+      </div>
+      <a href="#presentation" class="btn-primary">Découvrir mon parcours ↓</a>
+    </div>
+    <div class="hero-visual">
+      <div class="photo-frame"><img src="photo.jpg" alt="Photo de Mohammed" /></div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- 01 — PARCOURS  (bleu marine)               -->
+  <!-- ══════════════════════════════════════════ -->
+  <section class="section reveal" id="presentation">
+    <div class="section-inner">
+      <div class="section-head">
+        <span class="eyebrow">01 — Parcours</span>
+        <h2>Présentation</h2>
+      </div>
+      <div class="card-grid">
+
+        <div class="mac-card" data-group="presentation" data-idx="0">
+          <div class="card-titlebar"><span class="cd r"></span><span class="cd y"></span><span class="cd g"></span></div>
+          <div class="card-body">
+            <span class="card-num">Bonjour 👋</span>
+            <h3>Me présenter</h3>
+            <p class="card-preview">Je m'appelle Mohammed, étudiant·e en 2ᵉ année de BUT Science des données…</p>
+            <span class="card-open-hint">Cliquer pour lire →</span>
+          </div>
+        </div>
+
+        <div class="mac-card" data-group="presentation" data-idx="1">
+          <div class="card-titlebar"><span class="cd r"></span><span class="cd y"></span><span class="cd g"></span></div>
+          <div class="card-body">
+            <span class="card-num">Formation</span>
+            <h3>Ce que j'apprécie</h3>
+            <p class="card-preview">La pluridisciplinarité — stats, prog, bases de données…</p>
+            <span class="card-open-hint">Cliquer pour lire →</span>
+          </div>
+        </div>
+
+        <div class="mac-card" data-group="presentation" data-idx="2">
+          <div class="card-titlebar"><span class="cd r"></span><span class="cd y"></span><span class="cd g"></span></div>
+          <div class="card-body">
+            <span class="card-num">Qualités</span>
+            <h3>Mes qualités</h3>
+            <p class="card-preview">Curieux·se, rigoureux·se, autonome… une qualité par feuille ici.</p>
+            <span class="card-open-hint">Cliquer pour lire →</span>
+          </div>
+        </div>
+
+        <div class="mac-card" data-group="presentation" data-idx="3">
+          <div class="card-titlebar"><span class="cd r"></span><span class="cd y"></span><span class="cd g"></span></div>
+          <div class="card-body">
+            <span class="card-num">Académique</span>
+            <h3>Objectifs académiques</h3>
+            <p class="card-preview">BUT mention bien, master Data Science / IA…</p>
+            <span class="card-open-hint">Cliquer pour lire →</span>
+          </div>
+        </div>
+
+        <div class="mac-card" data-group="presentation" data-idx="4">
+          <div class="card-titlebar"><span class="cd r"></span><span class="cd y"></span><span class="cd g"></span></div>
+          <div class="card-body">
+            <span class="card-num">Professionnel</span>
+            <h3>Objectifs professionnels</h3>
+            <p class="card-preview">Data Analyst, Junior Data Scientist…</p>
+            <span class="card-open-hint">Cliquer pour lire →</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- 02 — EXPERTISE  (doré)                     -->
+  <!-- ══════════════════════════════════════════ -->
+  <section class="section reveal" id="competences">
+    <div class="section-inner">
+      <div class="section-head">
+        <span class="eyebrow">02 — Expertise</span>
+        <h2>Compétences</h2>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-block"><h3>Langages</h3><div class="pills"><span>Python</span><span>R</span><span>SQL</span><span>Bash</span><span>HTML / CSS</span></div></div>
+        <div class="skill-block"><h3>Analyse & modélisation</h3><div class="pills"><span>Stats descriptives</span><span>Régression</span><span>Classification</span><span>Clustering</span><span>Séries temporelles</span></div></div>
+        <div class="skill-block"><h3>Librairies Python</h3><div class="pills"><span>Pandas</span><span>NumPy</span><span>Scikit-learn</span><span>Matplotlib</span><span>Seaborn</span><span>Plotly</span></div></div>
+        <div class="skill-block"><h3>Bases de données</h3><div class="pills"><span>PostgreSQL</span><span>MySQL</span><span>SQLite</span><span>Modélisation</span></div></div>
+        <div class="skill-block"><h3>Visualisation & BI</h3><div class="pills"><span>Tableau</span><span>Power BI</span><span>ggplot2</span><span>Shiny</span><span>Dash</span></div></div>
+        <div class="skill-block"><h3>Transverses</h3><div class="pills"><span>Git / GitHub</span><span>Gestion de projet</span><span>Communication</span><span>Anglais B2</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- 03 — PROJETS UNIVERSITAIRES  (vert)        -->
+  <!-- ══════════════════════════════════════════ -->
+  <section class="section reveal" id="sae">
+    <div class="section-inner">
+      <div class="section-head">
+        <span class="eyebrow">03 — Projets universitaires</span>
+        <h2>Situations d'Apprentissage<br>et d'Évaluation</h2>
+      </div>
+
+      <!-- Filtre par compétence BUT -->
+      <div class="filter-row" id="saeFilters">
+        <button class="filter-btn active" data-filter="all">Toutes</button>
+        <button class="filter-btn" data-filter="traiter">Traiter</button>
+        <button class="filter-btn" data-filter="analyser">Analyser</button>
+        <button class="filter-btn" data-filter="valoriser">Valoriser</button>
+        <button class="filter-btn" data-filter="modeliser">Modéliser</button>
+      </div>
+
+      <div class="card-grid" id="grid-sae">
+
+        <div class="mac-card" data-group="sae" data-idx="0" data-comp="traiter">
+          <div class="card-titlebar"><span class="cd r"></span><span class="cd y"></span><span class="cd g"></span></div>
+          <div class="card-body">
+            <span class="card-num">SAÉ 1.01 · Traiter</span>
+            <h3>Exploration d'un jeu de données</h3>
+            <p class="card-preview">Analyse exploratoire, nettoyage, stats descriptives et premières visualisations.</p>
+            <div class="card-pills"><span>Python</span><span>Pandas</span></div>
+            <span class="card-open-hint">Cliquer pour lire →</span>
+          </div>
+        </div>
+
+        <div class="mac-card" data-group="sae" data-idx="1" data-comp="traiter">
+          <div class="card-titlebar"><span class="cd r"></span><span class="cd y"></span><span class="cd g"></span></div>
+          <div class="card-body">
+            <span class="card-num">SAÉ 1.02 · Traiter</span>
+            <h3>Conception d'une base de données</h3>
+            <p class="card-preview">Modélisation entité-association, modèle relationnel, implémentation SQL.</p>
+            <div class="card-pills"><span>SQL</span><span>Merise</span></div>
+            <span class="card-open-hint">Cliquer pour lire →</span>
+          </div>
+        </div>
+
+        <div class="mac-card" data-group="sae" data-idx="2" data-comp="traiter">
+          <div class="card-titlebar"><span class="cd r"></span><span class="cd y"></span><span class="cd g"></span></div>
+          <div class="card-body">
+            <span class="card-num">SAÉ 1.03 · Traiter</span>
+            <h3>Collecte et structuration web</h3>
+            <p class="card-preview">Scraping de données publiques, nettoyage et stockage structuré.</p>
+            <div class="card-pills"><span>Python</span><span>BeautifulSoup</span></div>
+            <span class="card-open-hint">Cliquer pour lire →</span>
+          </div>
+        </div>
+
+        <div class="mac-card" data-group="sae" data-idx="3" data-comp="valoriser">
+          <div class="card-titlebar"><span class="cd r"></span><span class="cd y"></span><span class="cd g"></span></div>
+          <div class="card-body">
+            <span class="card-num">SAÉ 2.01 · Valoriser</span>
+            <h3>Dashboard interactif</h3>
+            <p class="card-preview">Tableau de bord pour présenter des KPI à des non-spécialistes.</p>
+            <div class="card-pills"><span>R Shiny</span><span>ggplot2</span></div>
+            <span class="card-open-hint">Cliquer pour lire →</span>
+          </div>
+        </div>
+
+        <div class="mac-card" data-group="sae" data-idx="4" data-comp="analyser">
+          <div class="card-titlebar"><span class="cd r"></span><span class="cd y"></span><span class="cd g"></span></div>
+          <div class="card-body">
+            <span class="card-num">SAÉ 2.02 · Analyser</span>
+            <h3>Analyse statistique & rapport</h3>
+            <p class="card-preview">Tests d'hypothèses, intervalles de confiance, rapport professionnel.</p>
+            <div class="card-pills"><span>R</span><span>Statistiques</span></div>
+            <span class="card-open-hint">Cliquer pour lire →</span>
+          </div>
+        </div>
+
+        <div class="mac-card" data-group="sae" data-idx="5" data-comp="traiter">
+          <div class="card-titlebar"><span class="cd r"></span><span class="cd y"></span><span class="cd g"></span></div>
+          <div class="card-body">
+            <span class="card-num">SAÉ 2.03 · Traiter</span>
+            <h3>Pipeline de données (ETL)</h3>
+            <p class="card-preview">Extraction API, transformation et chargement en entrepôt.</p>
+            <div class="card-pills"><span>Python</span><span>ETL</span></div>
+            <span class="card-open-hint">Cliquer pour lire →</span>
+          </div>
+        </div>
+
+        <div class="mac-card" data-group="sae" data-idx="6" data-comp="modeliser">
+          <div class="card-titlebar"><span class="cd r"></span><span class="cd y"></span><span class="cd g"></span></div>
+          <div class="card-body">
+            <span class="card-num">SAÉ 3.01 · Modéliser</span>
+            <h3>Modèle prédictif supervisé</h3>
+            <p class="card-preview">Classification sur dataset métier, optimisation hyperparamètres.</p>
+            <div class="card-pills"><span>Scikit-learn</span><span>ML</span></div>
+            <span class="card-open-hint">Cliquer pour lire →</span>
+          </div>
+        </div>
+
+        <div class="mac-card" data-group="sae" data-idx="7" data-comp="analyser">
+          <div class="card-titlebar"><span class="cd r"></span><span class="cd y"></span><span class="cd g"></span></div>
+          <div class="card-body">
+            <span class="card-num">SAÉ 3.02 · Analyser</span>
+            <h3>Analyse de texte (NLP)</h3>
+            <p class="card-preview">Tokenisation, analyse de sentiment, topic modeling LDA.</p>
+            <div class="card-pills"><span>NLTK</span><span>spaCy</span></div>
+            <span class="card-open-hint">Cliquer pour lire →</span>
+          </div>
+        </div>
+
+        <div class="mac-card" data-group="sae" data-idx="8" data-comp="traiter">
+          <div class="card-titlebar"><span class="cd r"></span><span class="cd y"></span><span class="cd g"></span></div>
+          <div class="card-body">
+            <span class="card-num">SAÉ 3.03 · Traiter</span>
+            <h3>Big Data & traitement distribué</h3>
+            <p class="card-preview">PySpark, DataFrames distribués, traitement de volumes importants.</p>
+            <div class="card-pills"><span>PySpark</span><span>Hadoop</span></div>
+            <span class="card-open-hint">Cliquer pour lire →</span>
+          </div>
+        </div>
+
+        <div class="mac-card" data-group="sae" data-idx="9" data-comp="valoriser">
+          <div class="card-titlebar"><span class="cd r"></span><span class="cd y"></span><span class="cd g"></span></div>
+          <div class="card-body">
+            <span class="card-num">SAÉ 4.01 · Valoriser</span>
+            <h3>Projet transversal — cas entreprise</h3>
+            <p class="card-preview">Réponse en équipe à une problématique réelle d'un partenaire pro.</p>
+            <div class="card-pills"><span>Python</span><span>Gestion de projet</span></div>
+            <span class="card-open-hint">Cliquer pour lire →</span>
+          </div>
+        </div>
+
+        <div class="mac-card" data-group="sae" data-idx="10" data-comp="modeliser">
+          <div class="card-titlebar"><span class="cd r"></span><span class="cd y"></span><span class="cd g"></span></div>
+          <div class="card-body">
+            <span class="card-num">SAÉ 4.02 · Modéliser</span>
+            <h3>Séries temporelles</h3>
+            <p class="card-preview">ARIMA, Prophet, prévision sur données économiques ou météo.</p>
+            <div class="card-pills"><span>Prophet</span><span>ARIMA</span></div>
+            <span class="card-open-hint">Cliquer pour lire →</span>
+          </div>
+        </div>
+
+        <div class="mac-card" data-group="sae" data-idx="11" data-comp="modeliser">
+          <div class="card-titlebar"><span class="cd r"></span><span class="cd y"></span><span class="cd g"></span></div>
+          <div class="card-body">
+            <span class="card-num">SAÉ 4.03 · Modéliser</span>
+            <h3>Déploiement d'un modèle ML</h3>
+            <p class="card-preview">API REST, interface web, conteneurisation Docker.</p>
+            <div class="card-pills"><span>FastAPI</span><span>Docker</span></div>
+            <span class="card-open-hint">Cliquer pour lire →</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- 04 — PASSEPORT CULTUREL  (rouge)           -->
+  <!-- ══════════════════════════════════════════ -->
+  <section class="section reveal" id="projets">
+    <div class="section-inner">
+      <div class="section-head">
+        <span class="eyebrow">04 — Passeport culturel</span>
+        <h2>Projets & engagements<br>extrascolaires</h2>
+      </div>
+      <div class="card-grid">
+
+        <div class="mac-card" data-group="projets" data-idx="0">
+          <div class="card-titlebar"><span class="cd r"></span><span class="cd y"></span><span class="cd g"></span></div>
+          <div class="card-body">
+            <span class="card-num">Personnel</span>
+            <h3>Projet 1 — Titre</h3>
+            <p class="card-preview">Description courte de ton premier projet perso…</p>
+            <div class="card-pills"><span>Python</span><span>Data</span></div>
+            <span class="card-open-hint">Cliquer pour lire →</span>
+          </div>
+        </div>
+
+        <div class="mac-card" data-group="projets" data-idx="1">
+          <div class="card-titlebar"><span class="cd r"></span><span class="cd y"></span><span class="cd g"></span></div>
+          <div class="card-body">
+            <span class="card-num">Compétition</span>
+            <h3>Projet 2 — Titre</h3>
+            <p class="card-preview">Kaggle, data challenge, open source…</p>
+            <div class="card-pills"><span>Kaggle</span><span>ML</span></div>
+            <span class="card-open-hint">Cliquer pour lire →</span>
+          </div>
+        </div>
+
+        <div class="mac-card" data-group="projets" data-idx="2">
+          <div class="card-titlebar"><span class="cd r"></span><span class="cd y"></span><span class="cd g"></span></div>
+          <div class="card-body">
+            <span class="card-num">Associatif</span>
+            <h3>Projet 3 — Titre</h3>
+            <p class="card-preview">Club, asso, bénévolat, engagement culturel…</p>
+            <div class="card-pills"><span>Association</span></div>
+            <span class="card-open-hint">Cliquer pour lire →</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- 05 — STAGE  (bleu marine)                  -->
+  <!-- ══════════════════════════════════════════ -->
+  <section class="section reveal" id="stage">
+    <div class="section-inner">
+      <div class="section-head">
+        <span class="eyebrow">05 — Expérience professionnelle</span>
+        <h2>Mon stage</h2>
+      </div>
+      <div class="stage-wrapper">
+        <div class="stage-left">
+          <h3>Intitulé du poste</h3>
+          <span class="stage-company">Nom de l'entreprise · Ville · Durée</span>
+          <p class="stage-desc">Décrivez ici le contexte de votre stage : type de structure, rôle, et en quoi cette expérience s'inscrit dans votre parcours data.</p>
+        </div>
+        <div class="stage-right">
+          <h4>Missions réalisées</h4>
+          <ul class="stage-tasks">
+            <li>Mission 1 — description courte de ce que vous avez fait concrètement.</li>
+            <li>Mission 2 — un livrable ou une responsabilité que vous avez eue.</li>
+            <li>Mission 3 — un outil ou une technique mis en œuvre sur le terrain.</li>
+            <li>Mission 4 — une collaboration ou un projet transverse mené avec l'équipe.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- 06 — BILAN  (doré)                         -->
+  <!-- ══════════════════════════════════════════ -->
+  <section class="section reveal" id="bilan">
+    <div class="section-inner">
+      <div class="section-head">
+        <span class="eyebrow">06 — Bilan & perspectives</span>
+        <h2>Ce que je retiens</h2>
+      </div>
+      <div class="bilan-grid">
+        <div class="bilan-card highlight">
+          <div class="bilan-icon">🏆</div>
+          <h3>Ce dont je suis le plus fier·ère</h3>
+          <p>La réalisation dont vous êtes le·la plus fier·ère — une SAÉ aboutie, un projet qui a dépassé les attentes, une compétence acquise avec effort, ou un moment clé en équipe.</p>
+        </div>
+        <div class="bilan-card">
+          <div class="bilan-icon">🎯</div>
+          <h3>Mes objectifs pour la suite</h3>
+          <ul>
+            <li>Finir mon BUT avec mention</li>
+            <li>Intégrer un master Data Science / IA</li>
+            <li>Travailler dans un secteur qui m'inspire</li>
+            <li>Contribuer à des projets open source</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- FOOTER / CONTACT                           -->
+  <!-- ══════════════════════════════════════════ -->
+  <footer id="contact">
+    <div class="footer-inner">
+      <div>
+        <p class="footer-name">Mohammed.</p>
+        <p class="footer-sub">BUT Science des données · [IUT] · 2025</p>
+      </div>
+      <div class="footer-links">
+        <a href="https://github.com/" target="_blank">GitHub</a>
+        <a href="https://linkedin.com/" target="_blank">LinkedIn</a>
+        <a href="mailto:votre@email.fr">votre@email.fr</a>
+      </div>
+    </div>
+  </footer>
+
+</div><!-- /window -->
+
+<!-- ── MODAL FENÊTRE MAC ─────────────────────── -->
+<div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true">
+  <div class="modal-win" id="modalWin">
+    <div class="modal-titlebar">
+      <div class="modal-dots">
+        <span class="modal-dot red" id="modalClose" title="Fermer (point rouge)"></span>
+        <span class="modal-dot yellow"></span>
+        <span class="modal-dot green"></span>
+      </div>
+      <span class="modal-title" id="modalTitle">—</span>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+    <div class="modal-nav">
+      <span class="modal-nav-info" id="modalNavInfo"></span>
+      <div class="modal-dots-indicator" id="modalDotsIndicator"></div>
+      <div class="modal-nav-btns">
+        <button class="modal-nav-btn" id="modalPrev" title="Page précédente">←</button>
+        <button class="modal-nav-btn" id="modalNext" title="Page suivante">→</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
