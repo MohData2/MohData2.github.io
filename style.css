@@ -47,7 +47,10 @@
   --s-str2: var(--gold);
 }
 
-html { scroll-behavior:smooth; font-size:16px; }
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
 
 body {
   font-family: var(--sans);
@@ -89,10 +92,19 @@ body {
   background: var(--paper);
   border: 1px solid var(--border);
   border-radius: 14px;
-  min-height: calc(100vh - 48px);
-  overflow: hidden;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: calc(100vh - 48px);
   box-shadow: 0 32px 80px rgba(0,0,0,.2), 0 4px 16px rgba(0,0,0,.1);
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  /* Scrollbar discrète */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(201,168,76,.25) transparent;
 }
+.window::-webkit-scrollbar { width: 5px; }
+.window::-webkit-scrollbar-track { background: transparent; }
+.window::-webkit-scrollbar-thumb { background: rgba(201,168,76,.25); border-radius: 3px; }
 
 .titlebar {
   height: 36px;
@@ -286,9 +298,37 @@ nav a:hover { color: var(--gold-l); }
 .photo-frame img { width:100%; height:100%; object-fit:cover; display:block; }
 
 /* ══════════════════════════════════════════════
-   SECTIONS
+   SECTIONS — snap scroll + animation d'entrée
 ══════════════════════════════════════════════ */
-.section { padding: 88px 0; }
+.hero,
+.section,
+footer {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+.hero {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+@keyframes snap-in {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* La classe .snapped est ajoutée par JS à chaque section visible */
+.section.snapped {
+  animation: snap-in .5s cubic-bezier(.25,.46,.45,.94) both;
+}
+
+.section {
+  padding: 88px 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
 .section-inner { max-width:1080px; margin:0 auto; padding:0 48px; }
 
@@ -340,13 +380,12 @@ nav a:hover { color: var(--gold-l); }
   border-color: var(--s-a);
 }
 
-/* Zellige maillot Maroc bien visible sur les cartes des sections vertes */
+/* Cartes Maroc — fond clair neutre, le zellige est visible sur le fond de SECTION */
 #presentation .mac-card,
 #projets .mac-card,
 #bilan .mac-card {
-  background-color: #faf7ef;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64'%3E%3Cg fill='none' stroke='%232e7d52' stroke-width='0.9' opacity='0.18'%3E%3Cpolygon points='32,8 35,21 45,14 38,25 52,28 38,31 45,42 35,35 32,48 29,35 19,42 26,31 12,28 26,25 19,14 29,21'/%3E%3Cpolygon points='32,14 34,22 41,18 37,25 44,28 37,31 41,38 34,34 32,42 30,34 23,38 27,31 20,28 27,25 23,18 30,22'/%3E%3Cpolygon points='32,0 38,8 32,14 26,8'/%3E%3Cpolygon points='32,64 38,56 32,50 26,56'/%3E%3Cpolygon points='0,32 8,26 14,32 8,38'/%3E%3Cpolygon points='64,32 56,26 50,32 56,38'/%3E%3Crect x='0' y='0' width='7' height='7' transform='rotate(45 3.5 3.5)'/%3E%3Crect x='57' y='0' width='7' height='7' transform='rotate(45 60.5 3.5)'/%3E%3Crect x='0' y='57' width='7' height='7' transform='rotate(45 3.5 60.5)'/%3E%3Crect x='57' y='57' width='7' height='7' transform='rotate(45 60.5 60.5)'/%3E%3C/g%3E%3C/svg%3E");
-  background-size: 64px 64px;
+  background-color: rgba(251,254,252,.92);
+  backdrop-filter: blur(2px);
 }
 
 /* Mini titlebar mac sur la carte */
@@ -617,7 +656,7 @@ footer {
   backdrop-filter: blur(10px);
   z-index:1000;
   display:flex; align-items:center; justify-content:center;
-  padding:28px;
+  padding: 20px 16px;
   opacity:0; pointer-events:none;
   transition:opacity .22s ease;
 }
@@ -627,7 +666,9 @@ footer {
   background: var(--paper);
   border:1px solid var(--border);
   border-radius:14px;
-  width: min(1160px, calc(100vw - 40px));
+  /* Pleine largeur avec marges minimales, même ratio vertical qu'avant */
+  width: calc(100vw - 32px);
+  max-width: 1400px;
   max-height: 93vh;
   box-shadow:0 40px 100px rgba(0,0,0,.4);
   display:flex; flex-direction:column;
@@ -636,6 +677,19 @@ footer {
   overflow:hidden;
 }
 .modal-overlay.open .modal-win { transform:scale(1) translateY(0); }
+
+/* Corps modal : scrollable vers le bas */
+.modal-body {
+  overflow-y: auto;
+  flex: 1;
+  scroll-behavior: smooth;
+  /* Scrollbar discrète */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(201,168,76,.35) transparent;
+}
+.modal-body::-webkit-scrollbar { width: 5px; }
+.modal-body::-webkit-scrollbar-track { background: transparent; }
+.modal-body::-webkit-scrollbar-thumb { background: rgba(201,168,76,.35); border-radius:3px; }
 
 /* Titlebar modal */
 .modal-titlebar {
@@ -660,8 +714,7 @@ footer {
   color:rgba(255,255,255,.4); flex:1; text-align:center;
 }
 
-/* Corps scrollable */
-.modal-body { overflow-y:auto; flex:1; }
+/* (modal-body défini plus haut avec scrollbar dorée) */
 
 /* ── Transition entre feuilles ── */
 @keyframes page-in-right  { from { opacity:0; transform:translateX(32px); }  to { opacity:1; transform:translateX(0); } }
@@ -787,42 +840,48 @@ footer {
   margin-left: 12px;
 }
 
-/* Effet parchemin riche — vieux papier ambré */
+/* ── Effet parchemin froissé — torchon ancien ── */
 .ruled-lines {
-  background-color: #f2e6c8;
+  background-color: #eedfa0;
   background-image:
-    /* grain papier fin simulé par micro-dégradés croisés */
-    repeating-linear-gradient(
-      92deg,
-      transparent 0px, transparent 40px,
-      rgba(139,100,40,.025) 40px, rgba(139,100,40,.025) 41px
-    ),
-    repeating-linear-gradient(
-      178deg,
-      transparent 0px, transparent 55px,
-      rgba(139,100,40,.02) 55px, rgba(139,100,40,.02) 56px
-    ),
-    /* dégradé de vieillissement */
-    radial-gradient(ellipse 80% 40% at 50% 0%, rgba(100,70,20,.09) 0%, transparent 100%),
-    radial-gradient(ellipse 80% 40% at 50% 100%, rgba(100,70,20,.09) 0%, transparent 100%),
-    radial-gradient(ellipse 30% 100% at 0% 50%, rgba(80,55,15,.06) 0%, transparent 100%),
-    radial-gradient(ellipse 30% 100% at 100% 50%, rgba(80,55,15,.06) 0%, transparent 100%);
-  border: 1px solid rgba(139,100,40,.22);
+    /* Plis diagonaux simulant le froissé */
+    linear-gradient(13deg,  transparent 47%, rgba(90,55,10,.055) 48%, rgba(90,55,10,.055) 49.5%, transparent 50.5%),
+    linear-gradient(-22deg, transparent 29%, rgba(70,42,8,.04)   30%, rgba(70,42,8,.04)   31.5%, transparent 32.5%),
+    linear-gradient(6deg,   transparent 67%, rgba(100,65,15,.045) 68%, rgba(100,65,15,.045) 69.5%, transparent 70.5%),
+    linear-gradient(-38deg, transparent 58%, rgba(65,40,8,.035)  59%, rgba(65,40,8,.035)  60.5%, transparent 61.5%),
+    linear-gradient(28deg,  transparent 81%, rgba(85,52,10,.04)  82%, rgba(85,52,10,.04)  83.5%, transparent 84.5%),
+    /* Vieillissement — taches d'humidité sur les bords */
+    radial-gradient(ellipse 90% 35% at 50% 0%,   rgba(80,50,10,.13) 0%, transparent 100%),
+    radial-gradient(ellipse 90% 35% at 50% 100%,  rgba(80,50,10,.13) 0%, transparent 100%),
+    radial-gradient(ellipse 25% 100% at 0% 50%,  rgba(70,42,8,.10)  0%, transparent 100%),
+    radial-gradient(ellipse 25% 100% at 100% 50%, rgba(70,42,8,.10)  0%, transparent 100%),
+    /* Coins brunis */
+    radial-gradient(ellipse 30% 30% at 0% 0%,     rgba(60,35,5,.14)  0%, transparent 70%),
+    radial-gradient(ellipse 30% 30% at 100% 0%,   rgba(60,35,5,.14)  0%, transparent 70%),
+    radial-gradient(ellipse 30% 30% at 0% 100%,   rgba(60,35,5,.14)  0%, transparent 70%),
+    radial-gradient(ellipse 30% 30% at 100% 100%, rgba(60,35,5,.14)  0%, transparent 70%);
+  border: 1px solid rgba(120,80,20,.28);
   box-shadow:
-    inset 0 0 60px rgba(120,85,30,.08),
-    inset 0 1px 0 rgba(255,240,190,.6);
+    inset 0 0 80px rgba(100,65,15,.12),
+    inset 0 1px 0 rgba(255,245,200,.7),
+    /* Ombre externe légère pour effet de profondeur */
+    0 2px 12px rgba(80,50,10,.15);
+  /* Filtre SVG pour le froissé organique */
+  filter: url(#parchment-filter);
+  position: relative;
 }
+
 /* Texte encre sépia sur parchemin */
-.ruled-lines h2       { color: #1e1508; }
-.ruled-lines p        { color: #2e2010; line-height: 1.82; }
-.ruled-lines li       { color: #2e2010; }
-.ruled-lines .modal-sub  { color: rgba(46,32,16,.5); letter-spacing:.06em; }
-.ruled-lines .modal-footer-line { border-top-color: rgba(139,100,40,.2); color: rgba(46,32,16,.45); }
-.ruled-lines .modal-pills span  { background: rgba(139,100,40,.1); border-color: rgba(139,100,40,.25); color: #3d2a0a; }
-.ruled-lines .modal-link        { color: #5a3a10; }
-.ruled-lines strong { color: #1a1005; }
-.ruled-maroc.ruled-lines { border-left: 3px solid rgba(192,57,43,.5); padding-left:28px; margin-left:12px; }
-.ruled-univ.ruled-lines  { border-left: 3px solid rgba(201,168,76,.6); padding-left:28px; margin-left:12px; }
+.ruled-lines h2       { color: #18100a; }
+.ruled-lines p        { color: #271a08; line-height: 1.85; }
+.ruled-lines li       { color: #271a08; }
+.ruled-lines .modal-sub     { color: rgba(39,26,8,.48); letter-spacing:.06em; }
+.ruled-lines .modal-footer-line { border-top-color: rgba(120,80,20,.2); color: rgba(39,26,8,.42); }
+.ruled-lines .modal-pills span  { background: rgba(120,80,20,.12); border-color: rgba(120,80,20,.28); color: #3a2508; }
+.ruled-lines .modal-link        { color: #5a3208; }
+.ruled-lines strong { color: #120c04; }
+.ruled-maroc.ruled-lines { border-left: 3px solid rgba(192,57,43,.55); padding-left:28px; margin-left:12px; }
+.ruled-univ.ruled-lines  { border-left: 3px solid rgba(201,168,76,.65); padding-left:28px; margin-left:12px; }
 
 /* Pied de page modal */
 .modal-footer-line {
