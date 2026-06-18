@@ -425,7 +425,7 @@
     <div class="modal-titlebar">
       <div class="modal-dots">
         <span class="modal-dot red" id="modalClose"></span>
-        <span class="modal-dot yellow"></span>
+        <span class="modal-dot yellow" id="modalMinimize"></span>
         <span class="modal-dot green"></span>
       </div>
       <span class="modal-title" id="modalTitle">—</span>
@@ -441,6 +441,33 @@
     </div>
   </div>
 </div>
+
+<!-- SVG filter parchemin froissé — appliqué via CSS -->
+<svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+  <defs>
+    <filter id="parchment-filter" x="-5%" y="-5%" width="110%" height="110%" color-interpolation-filters="sRGB">
+      <!-- Turbulence organique pour simuler le froissé du papier -->
+      <feTurbulence type="fractalNoise" baseFrequency="0.018 0.032" numOctaves="5" seed="7" stitchTiles="stitch" result="noise"/>
+      <!-- Déplacement léger pour le froissé -->
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="3.5" xChannelSelector="R" yChannelSelector="G" result="displaced"/>
+      <!-- Légère désaturation pour le look ancien -->
+      <feColorMatrix in="displaced" type="matrix"
+        values="0.95 0.05 0    0 0.03
+                0    0.9  0.08 0 0.02
+                0    0.02 0.85 0 0.01
+                0    0    0    1 0" result="sepia"/>
+      <!-- Texture supplémentaire de grain de papier -->
+      <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" seed="12" result="grain"/>
+      <feColorMatrix in="grain" type="matrix"
+        values="0 0 0 0 0.54
+                0 0 0 0 0.39
+                0 0 0 0 0.16
+                0 0 0 0 0.035" result="grain-tinted"/>
+      <feBlend in="sepia" in2="grain-tinted" mode="multiply" result="textured"/>
+      <feComposite in="textured" in2="SourceGraphic" operator="in"/>
+    </filter>
+  </defs>
+</svg>
 
 <script src="script.js"></script>
 </body>
