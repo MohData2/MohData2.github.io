@@ -493,7 +493,9 @@ function render(dir = null) {
 
 btnN.addEventListener("click", () => { if (pIdx < DATA[grp][cIdx].pages.length-1) { pIdx++; render('next'); body.scrollTop=0; } });
 btnP.addEventListener("click", () => { if (pIdx > 0) { pIdx--; render('prev'); body.scrollTop=0; } });
+/* Fermeture : point rouge ET point jaune */
 btnClose.addEventListener("click", close);
+document.getElementById("modalMinimize").addEventListener("click", close);
 overlay.addEventListener("click", e => { if (e.target===overlay) close(); });
 document.addEventListener("keydown", e => {
   if (!overlay.classList.contains("open")) return;
@@ -524,18 +526,52 @@ document.querySelectorAll(".filter-btn").forEach(btn => {
   });
 });
 
-/* ── Scroll reveal ── */
-const revEls = document.querySelectorAll(".reveal");
-function rev() { const t=window.innerHeight*.88; revEls.forEach(e=>{ if(e.getBoundingClientRect().top<t) e.classList.add("active"); }); }
-window.addEventListener("scroll", rev, {passive:true}); rev();
+/* ── Scroll reveal + snap animation + nav active ── */
+const winScroll = document.querySelector(".window");
+const sections  = document.querySelectorAll("section[id], footer[id]");
+const navAs     = document.querySelectorAll("nav a");
+const revEls    = document.querySelectorAll(".reveal");
 
-/* Tilt 3D supprimé — la page ne bouge plus avec la souris */
+/* IntersectionObserver sur le conteneur .window */
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      /* Reveal général */
+      if (e.target.classList.contains("reveal")) {
+        e.target.classList.add("active");
+      }
+      /* Animation snap-in sur les sections */
+      if (e.target.classList.contains("section")) {
+        e.target.classList.remove("snapped");
+        /* Force reflow pour relancer l'animation */
+        void e.target.offsetWidth;
+        e.target.classList.add("snapped");
+      }
+      /* Nav active */
+      const id = e.target.getAttribute("id");
+      if (id) {
+        navAs.forEach(a => {
+          a.style.color = a.getAttribute("href") === `#${id}` ? "var(--gold-l)" : "";
+        });
+      }
+    }
+  });
+}, {
+  root: winScroll,
+  threshold: 0.3
+});
 
-/* ── Nav active ── */
-const secs = document.querySelectorAll("section[id],footer[id]");
-const navAs = document.querySelectorAll("nav a");
-window.addEventListener("scroll", ()=>{
-  let cur="";
-  secs.forEach(s=>{ if(window.scrollY>=s.offsetTop-130) cur=s.id; });
-  navAs.forEach(a=>{ a.style.color=a.getAttribute("href")===`#${cur}`?"var(--gold-l)":""; });
-},{passive:true});
+sections.forEach(s => observer.observe(s));
+revEls.forEach(el => observer.observe(el));
+
+/* ── Nav links : défilement dans .window ── */
+document.querySelectorAll("nav a[href^='#'], a.btn-primary[href^='#']").forEach(a => {
+  a.addEventListener("click", e => {
+    const id = a.getAttribute("href").slice(1);
+    const target = document.getElementById(id);
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  });
+});
