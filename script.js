@@ -432,8 +432,88 @@ const DATA = {
         </ul>
       ` + fMaroc() }
     ]}
+  ],
+
+  /* ── 05 STAGE ── style SORBONNE */
+  stage: [
+    { pages: [
+      { t:"Intitulé du poste — Contexte", h: hUniv("Intitulé du poste","Stage · feuille 1 / 4") + `
+        <p><strong>[Ton intitulé de poste]</strong> chez <strong>[Nom de l'entreprise]</strong> — [Ville] · [Durée]</p>
+        <p>[Décris ici le contexte : type de structure (startup, grand groupe, ESN…), taille de l'équipe data, ton positionnement dans l'équipe.]</p>
+        <p>[En quoi cette expérience s'inscrit dans ton parcours data et tes objectifs professionnels ?]</p>
+      ` + fUniv() },
+      { t:"Missions réalisées", h: hUniv("Missions réalisées","Stage · feuille 2 / 4") + `
+        <ul>
+          ${li("[Mission 1 — ce que tu as fait concrètement, outils utilisés, résultats]")}
+          ${li("[Mission 2 — livrable produit, responsabilité]")}
+          ${li("[Mission 3 — outil ou technique mis en œuvre sur le terrain]")}
+          ${li("[Mission 4 — collaboration transverse, relation avec d'autres équipes]")}
+          ${li("[Mission 5 — si applicable]")}
+        </ul>
+      ` + fUniv() },
+      { t:"Stack & outils utilisés", h: hUniv("Stack technique","Stage · feuille 3 / 4") + `
+        <p>[Décris les outils, langages et technologies utilisés pendant le stage.]</p>
+        <div class="modal-pills"><span>[Python]</span><span>[SQL]</span><span>[Tableau / Power BI]</span><span>[Autre outil]</span></div>
+        <p style="margin-top:18px">[Ce que tu as découvert ou approfondi pendant le stage que tu ne connaissais pas avant.]</p>
+      ` + fUniv() },
+      { t:"Ce que j'ai appris", h: hUniv("Ce que j'ai appris","Stage · feuille 4 / 4") + `
+        <ul>
+          ${li("[Compétence technique principale acquise]")}
+          ${li("[Compétence professionnelle — communication, gestion de projet, relation client…]")}
+          ${li("[Découverte du monde de l'entreprise — culture, fonctionnement, rythme…]")}
+          ${li("[Ce que tu ferais différemment si tu recommençais]")}
+          ${li("[En quoi ce stage confirme ou réoriente tes objectifs professionnels]")}
+        </ul>
+      ` + fUniv() }
+    ]}
   ]
 };
+
+/* ─────────────────────────────────────────────
+   FEUILLE PHOTO — ajoutée automatiquement
+   à la FIN de chaque carte de toutes les sections
+───────────────────────────────────────────── */
+function photoFeuille(type) {
+  const header = type === 'maroc'
+    ? hMaroc("Galerie photos", "Ajoute tes photos ici")
+    : hUniv("Galerie photos", "Illustrations visuelles");
+  const footer = type === 'maroc' ? fMaroc() : fUniv();
+  return {
+    t: "Photos",
+    h: header + `
+      <div class="photo-feuille">
+        <div class="photo-slot main">
+          <input type="file" accept="image/*" title="Ajouter une photo principale">
+          <div class="photo-inner">
+            <svg viewBox="0 0 48 48" width="44" height="44" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="4" y="10" width="40" height="30" rx="3"/>
+              <circle cx="24" cy="24" r="8"/>
+              <path d="M4 10l7-6h26l7 6"/>
+              <circle cx="38" cy="16" r="2.5" fill="currentColor" stroke="none"/>
+            </svg>
+            <p>Photo principale</p>
+            <span>Cliquer pour sélectionner</span>
+          </div>
+        </div>
+        <div class="photo-slot">
+          <input type="file" accept="image/*" title="Ajouter une photo">
+          <div class="photo-inner"><p style="font-size:1.6rem;margin:0">+</p><span>Photo 2</span></div>
+        </div>
+        <div class="photo-slot">
+          <input type="file" accept="image/*" title="Ajouter une photo">
+          <div class="photo-inner"><p style="font-size:1.6rem;margin:0">+</p><span>Photo 3</span></div>
+        </div>
+      </div>
+    ` + footer
+  };
+}
+
+/* Ajouter la feuille photo à chaque carte */
+const marocGroups = ['presentation', 'projets'];
+Object.entries(DATA).forEach(([group, cards]) => {
+  const type = marocGroups.includes(group) ? 'maroc' : 'univ';
+  cards.forEach(card => card.pages.push(photoFeuille(type)));
+});
 
 /* ═══════════════════════════════════════════
    ÉTAT & DOM
