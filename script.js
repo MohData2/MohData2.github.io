@@ -661,12 +661,10 @@ const observer = new IntersectionObserver((entries) => {
         e.target.classList.add("active");
       }
       /* Animation snap-in sur les sections */
-      if (e.target.classList.contains("section")) {
-        e.target.classList.remove("snapped");
-        /* Force reflow pour relancer l'animation */
-        void e.target.offsetWidth;
-        e.target.classList.add("snapped");
-      }
+      /* Animation snap-in sur les sections — une seule fois */
+if (e.target.classList.contains("section") && !e.target.classList.contains("snapped")) {
+  e.target.classList.add("snapped");
+}
       /* Nav active */
       let currentSectionId = 'hero';
       const id = e.target.getAttribute("id");
@@ -693,166 +691,7 @@ document.querySelectorAll("nav a[href^='#'], a.btn-primary[href^='#']").forEach(
     const target = document.getElementById(id);
     if (target) {
       e.preventDefault();
-      unlockedBottom = computeSectionBottom(id);
       target.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   });
 });
-
-/* ══════════════════════════════════════════════
-   FLÈCHES DE NAVIGATION
-══════════════════════════════════════════════ */
-const sectionOrder = ['hero','presentation','competences','sae','projets','stage','bilan'];
-const marocSections = new Set(['presentation','projets','bilan','hero']);
-
-const scrollContainer = document.querySelector('.window');
-
-function blockScrollUnlessHero(e) {
-  if (currentSectionId !== 'hero') {
-    e.preventDefault();
-  }
-}
-if (scrollContainer) {
-  scrollContainer.addEventListener('wheel', blockScrollUnlessHero, { passive: false });
-  scrollContainer.addEventListener('touchmove', blockScrollUnlessHero, { passive: false });
-}
-
-/* Créer les flèches */
-const arrowWraps = {};
-
-sectionOrder.forEach((id, i) => {
-  const sec = document.getElementById(id);
-  const nextId = sectionOrder[i + 1];
-
-  if (!sec || !nextId) return;
-
-  const isMaroc = marocSections.has(id);
-
-  const wrap = document.createElement('div');
-  wrap.className = 'next-arrow-wrap';
-
-  const btn = document.createElement('button');
-  btn.className = `next-arrow ${isMaroc ? 'next-arrow-maroc' : 'next-arrow-univ'}`;
-
-  btn.innerHTML = `
-    <svg viewBox="0 0 24 24" width="20" height="20">
-      <polyline
-        points="6 9 12 15 18 9"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"/>
-    </svg>
-  `;
-
- btn.addEventListener('click', () => {
-    const target = document.getElementById(nextId);
-
-    if (target && scrollContainer) {
-      unlockedBottom = computeSectionBottom(nextId);
-      target.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
-  });
-
-  wrap.appendChild(btn);
-  sec.appendChild(wrap);
-
-  arrowWraps[id] = wrap;
-});
-
-/* Afficher la flèche près du bas */
-if (scrollContainer) {
-
-  scrollContainer.addEventListener('scroll', () => {
-
-    const st = scrollContainer.scrollTop;
-    const ch = scrollContainer.clientHeight;
-
-    sectionOrder.forEach((id) => {
-
-      const sec = document.getElementById(id);
-      const wrap = arrowWraps[id];
-
-      if (!sec || !wrap) return;
-
-      const secBottom =
-        sec.offsetTop +
-        sec.offsetHeight;
-
-      if (st + ch >= secBottom - 160) {
-        wrap.classList.add('visible');
-      }
-
-    });
-
-  }, { passive: true });
-
-}
-
-/* Afficher la flèche près du bas */
-if (scrollContainer) {
-
-  scrollContainer.addEventListener('scroll', () => {
-
-    const st = scrollContainer.scrollTop;
-    const ch = scrollContainer.clientHeight;
-
-    sectionOrder.forEach((id) => {
-
-      const sec = document.getElementById(id);
-      const wrap = arrowWraps[id];
-
-      if (!sec || !wrap) return;
-
-      const secBottom =
-        sec.offsetTop +
-        sec.offsetHeight;
-
-      if (st + ch >= secBottom - 160) {
-        wrap.classList.add('visible');
-      }
-
-    });
-
-  }, { passive: true });
-
-}
-
-let unlockedBottom = Infinity;
-
-function computeSectionBottom(id) {
-  const sec = document.getElementById(id);
-  return sec ? sec.offsetTop + sec.offsetHeight : Infinity;
-}
-
-let touchStartY = 0;
-
-function blockScrollBeyondUnlocked(e) {
-  if (!scrollContainer) return;
-  const maxAllowed = unlockedBottom - scrollContainer.clientHeight;
-
-  if (scrollContainer.scrollTop < maxAllowed - 1) return; /* marge dispo : scroll libre */
-
-  if (e.type === 'wheel') {
-    if (e.deltaY > 0) e.preventDefault();
-  } else if (e.type === 'touchmove' && e.touches && e.touches[0]) {
-    const currentY = e.touches[0].clientY;
-    const deltaY = touchStartY - currentY;
-    if (deltaY > 0) e.preventDefault();
-  }
-}
-
-if (scrollContainer) {
-  unlockedBottom = computeSectionBottom('hero');
-
-  scrollContainer.addEventListener('touchstart', (e) => {
-    if (e.touches && e.touches[0]) touchStartY = e.touches[0].clientY;
-  }, { passive: true });
-
-  scrollContainer.addEventListener('wheel', blockScrollBeyondUnlocked, { passive: false });
-  scrollContainer.addEventListener('touchmove', blockScrollBeyondUnlocked, { passive: false });
-}
