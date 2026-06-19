@@ -697,29 +697,6 @@ sectionOrder.forEach((id, i) => {
   arrowWraps[id] = wrap;
 });
 
-/* Bloquer scroll avant si section pas encore déverrouillée */
-if (scrollContainer) {
-  const blockForward = (e) => {
-    const going = (e.deltaY ?? (e.touches ? -e.touches[0].clientY : 0)) > 0;
-    if (!going) return;
-
-    const st = scrollContainer.scrollTop;
-    const ch = scrollContainer.clientHeight;
-    let currentIdx = 0;
-    sectionOrder.forEach((id, i) => {
-      const el = document.getElementById(id);
-      if (el && el.offsetTop <= st + ch * 0.5) currentIdx = i;
-    });
-
-    if (currentIdx >= unlockedUpTo) {
-      e.preventDefault();
-      e.stopPropagation();
-    }
-  };
-
-  scrollContainer.addEventListener('wheel', blockForward, { passive: false });
-  scrollContainer.addEventListener('touchmove', blockForward, { passive: false });
-
   /* Montrer la flèche seulement quand l'utilisateur atteint le bas de la section */
   scrollContainer.addEventListener('scroll', () => {
     const st = scrollContainer.scrollTop;
