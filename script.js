@@ -658,60 +658,83 @@ document.querySelectorAll("nav a[href^='#'], a.btn-primary[href^='#']").forEach(
 
 /* ══════════════════════════════════════════════
    FLÈCHES DE NAVIGATION
-   • Apparaissent uniquement en bas de chaque section
-   • Bloquent l'avance par scroll jusqu'au clic
-   • Retour libre
 ══════════════════════════════════════════════ */
 const sectionOrder = ['hero','presentation','competences','sae','projets','stage','bilan'];
 const marocSections = new Set(['presentation','projets','bilan','hero']);
-let unlockedUpTo = 0;
 
 const scrollContainer = document.querySelector('.window');
 
 /* Créer les flèches */
 const arrowWraps = {};
+
 sectionOrder.forEach((id, i) => {
   const sec = document.getElementById(id);
   const nextId = sectionOrder[i + 1];
+
   if (!sec || !nextId) return;
 
   const isMaroc = marocSections.has(id);
+
   const wrap = document.createElement('div');
   wrap.className = 'next-arrow-wrap';
 
   const btn = document.createElement('button');
   btn.className = `next-arrow ${isMaroc ? 'next-arrow-maroc' : 'next-arrow-univ'}`;
-  btn.setAttribute('aria-label', 'Section suivante');
-  btn.innerHTML = `<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>`;
+
+  btn.innerHTML = `
+    <svg viewBox="0 0 24 24" width="20" height="20">
+      <polyline
+        points="6 9 12 15 18 9"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+    </svg>
+  `;
 
   btn.addEventListener('click', () => {
-    unlockedUpTo = Math.max(unlockedUpTo, i + 1);
     const target = document.getElementById(nextId);
+
     if (target && scrollContainer) {
-      scrollContainer.scrollTo({ top: target.offsetTop, behavior: 'smooth' });
+      target.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
     }
   });
 
   wrap.appendChild(btn);
   sec.appendChild(wrap);
+
   arrowWraps[id] = wrap;
 });
 
-  /* Montrer la flèche seulement quand l'utilisateur atteint le bas de la section */
+/* Afficher la flèche près du bas */
+if (scrollContainer) {
+
   scrollContainer.addEventListener('scroll', () => {
+
     const st = scrollContainer.scrollTop;
     const ch = scrollContainer.clientHeight;
 
     sectionOrder.forEach((id) => {
+
       const sec = document.getElementById(id);
       const wrap = arrowWraps[id];
+
       if (!sec || !wrap) return;
 
-      const secBottom = sec.offsetTop + sec.offsetHeight;
-      // Visible quand on est dans les 160px du bas de la section
+      const secBottom =
+        sec.offsetTop +
+        sec.offsetHeight;
+
       if (st + ch >= secBottom - 160) {
         wrap.classList.add('visible');
       }
+
     });
+
   }, { passive: true });
+
 }
