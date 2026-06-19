@@ -208,42 +208,35 @@ nav a:hover { color: var(--gold-l); }
   overflow: hidden;
 }
 
-/* Décoration hero — réseau de nœuds data (top-left derrière le texte) */
+/* Décoration hero — anneau top-right DERRIÈRE la photo */
 .hero::before {
-  content:'';
-  position:absolute;
-  top: 0; left: 0;
-  width: 420px; height: 420px;
-  background-image:
-    radial-gradient(circle 2px, rgba(201,168,76,.4) 0%, transparent 100%),
-    radial-gradient(circle 1.5px, rgba(201,168,76,.3) 0%, transparent 100%),
-    radial-gradient(circle 1px, rgba(255,255,255,.15) 0%, transparent 100%);
-  background-position: 40px 60px, 120px 140px, 200px 80px;
-  background-size: 4px 4px;
-  background-repeat: no-repeat;
-  /* Grille de points façon scatter plot */
-  background-image: radial-gradient(rgba(201,168,76,.18) 1.5px, transparent 1.5px);
-  background-size: 28px 28px;
-  mask-image: radial-gradient(ellipse 80% 80% at 20% 30%, black 0%, transparent 75%);
-  -webkit-mask-image: radial-gradient(ellipse 80% 80% at 20% 30%, black 0%, transparent 75%);
-  pointer-events:none;
+  content: '';
+  position: absolute;
+  top: -80px; right: -80px;
+  width: 480px; height: 480px;
+  border-radius: 50%;
+  border: 1px solid rgba(201,168,76,.14);
+  box-shadow: 0 0 0 40px rgba(201,168,76,.04), 0 0 0 80px rgba(201,168,76,.02);
+  pointer-events: none;
   z-index: 0;
 }
 
-/* Décoration hero — arc de données en bas à droite SOUS la photo */
+/* Décoration hero — anneau bottom-left derrière le texte */
 .hero::after {
-  content:'';
-  position:absolute;
-  bottom: -20px; right: -20px;
-  width: 260px; height: 260px;
-  border-radius:50%;
-  border: 1px solid rgba(46,125,82,.18);
-  box-shadow:
-    0 0 0 30px rgba(46,125,82,.05),
-    0 0 0 60px rgba(46,125,82,.03);
-  pointer-events:none;
+  content: '';
+  position: absolute;
+  bottom: -60px; left: -60px;
+  width: 320px; height: 320px;
+  border-radius: 50%;
+  border: 1px solid rgba(46,125,82,.16);
+  box-shadow: 0 0 0 30px rgba(46,125,82,.04), 0 0 0 60px rgba(46,125,82,.02);
+  pointer-events: none;
   z-index: 0;
 }
+
+/* Texte et photo au-dessus des décorations */
+.hero-text { position: relative; z-index: 1; }
+.hero-visual { position: relative; z-index: 1; }
 
 .badge {
   display: inline-block;
@@ -341,14 +334,19 @@ footer {
 }
 
 .section {
-  padding: 88px 0;
+  padding: 88px 0 28px;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.section-inner {
+  max-width:1080px; margin:0 auto; padding:0 48px;
+  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-
-.section-inner { max-width:1080px; margin:0 auto; padding:0 48px; }
 
 .section-head { margin-bottom:48px; }
 
@@ -701,16 +699,13 @@ footer {
 }
 .footer-links a:hover { color:var(--gold); }
 
-/* ══════════════════════════════════════════════
-   MODAL — FENÊTRE MAC
-══════════════════════════════════════════════ */
 .modal-overlay {
   position:fixed; inset:0;
-  background: rgba(10,15,35,.65);
-  backdrop-filter: blur(10px);
+  background: rgba(5,8,20,.75);
+  backdrop-filter: blur(12px);
   z-index:1000;
   display:flex; align-items:center; justify-content:center;
-  padding: 20px 16px;
+  padding: 28px 32px;
   opacity:0; pointer-events:none;
   transition:opacity .22s ease;
 }
@@ -718,32 +713,31 @@ footer {
 
 .modal-win {
   background: var(--paper);
-  border:1px solid var(--border);
+  border:1px solid rgba(201,168,76,.18);
   border-radius:14px;
-  /* Pleine largeur avec marges minimales, même ratio vertical qu'avant */
-  width: calc(100vw - 32px);
-  max-width: 1400px;
-  max-height: 96vh;
-  box-shadow:0 40px 100px rgba(0,0,0,.4);
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  max-height: none;
+  box-shadow: 0 40px 120px rgba(0,0,0,.6), 0 0 0 1px rgba(255,255,255,.03);
   display:flex; flex-direction:column;
-  transform:scale(.91) translateY(22px);
+  transform:scale(.93) translateY(18px);
   transition:transform .3s cubic-bezier(.34,1.56,.64,1);
   overflow:hidden;
 }
 .modal-overlay.open .modal-win { transform:scale(1) translateY(0); }
 
-/* Corps modal : scrollable vers le bas */
+/* Corps modal scrollable */
 .modal-body {
   overflow-y: auto;
   flex: 1;
   scroll-behavior: smooth;
-  /* Scrollbar discrète */
   scrollbar-width: thin;
-  scrollbar-color: rgba(201,168,76,.35) transparent;
+  scrollbar-color: rgba(201,168,76,.3) transparent;
 }
 .modal-body::-webkit-scrollbar { width: 5px; }
 .modal-body::-webkit-scrollbar-track { background: transparent; }
-.modal-body::-webkit-scrollbar-thumb { background: rgba(201,168,76,.35); border-radius:3px; }
+.modal-body::-webkit-scrollbar-thumb { background: rgba(201,168,76,.3); border-radius:3px; }
 
 /* Titlebar modal */
 .modal-titlebar {
@@ -845,95 +839,58 @@ footer {
   font-family:var(--mono); font-size:.63rem; color:rgba(61,46,20,.55); letter-spacing:.06em;
 }
 
-/* Contenu intérieur du modal */
+/* Contenu intérieur du modal — remplit la fenêtre proportionnellement */
 .modal-inner {
-  padding: 32px 40px 28px;
+  padding: 52px 72px 44px;
+  width: 100%;
+  box-sizing: border-box;
 }
 .modal-inner h2 {
   font-family:var(--serif);
-  font-size:1.9rem; letter-spacing:-.025em;
-  color:var(--ink); margin-bottom:6px;
+  font-size: 2.8rem; letter-spacing:-.03em;
+  color:var(--ink); margin-bottom:10px; line-height:1.05;
 }
 .modal-inner .modal-sub {
-  font-family:var(--mono); font-size:.68rem;
-  color:var(--ink-mu); display:block; margin-bottom:22px;
-  letter-spacing:.04em;
+  font-family:var(--mono); font-size:.72rem;
+  color:var(--ink-mu); display:block; margin-bottom:32px;
+  letter-spacing:.06em;
 }
-.modal-inner p {
-  font-size:.92rem; color:var(--ink-m);
-  line-height:1.76; margin-bottom:18px;
+.modal-inner p { font-size:1rem; color:var(--ink-m); line-height:1.85; margin-bottom:20px; }
+.modal-inner ul { list-style:none; display:flex; flex-direction:column; gap:13px; margin-bottom:20px; }
+.modal-inner li { font-size:.96rem; color:var(--ink-m); line-height:1.65; display:flex; gap:12px; }
+.modal-inner strong { color: var(--ink); }
+
+/* Filet latéral + fond selon type */
+.modal-inner.ruled-univ {
+  background: #f7f9fc;
+  background-image: radial-gradient(rgba(41,51,88,.065) 1px, transparent 1px);
+  background-size: 28px 28px;
+  border-left: 4px solid var(--gold);
+  padding-left: 56px;
 }
-.modal-inner ul { list-style:none; display:flex; flex-direction:column; gap:9px; margin-bottom:18px; }
-.modal-inner li {
-  font-size:.9rem; color:var(--ink-m); line-height:1.6;
-  display:flex; gap:10px;
+.modal-inner.ruled-univ li::before { content:'→'; color:var(--gold); font-family:var(--mono); flex-shrink:0; }
+
+.modal-inner.ruled-maroc {
+  background: #f7f5f0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64'%3E%3Cg fill='none' stroke='%232e7d52' stroke-width='0.7' opacity='0.07'%3E%3Cpolygon points='32,8 35,21 45,14 38,25 52,28 38,31 45,42 35,35 32,48 29,35 19,42 26,31 12,28 26,25 19,14 29,21'/%3E%3Cpolygon points='32,0 38,8 32,14 26,8'/%3E%3Cpolygon points='0,32 8,26 14,32 8,38'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 64px 64px;
+  border-left: 4px solid var(--red);
+  padding-left: 56px;
 }
-.modal-pills { display:flex; flex-wrap:wrap; gap:6px; margin-top:20px; }
+.modal-inner.ruled-maroc li::before { content:'→'; color:var(--red); font-family:var(--mono); flex-shrink:0; }
+
+.modal-pills { display:flex; flex-wrap:wrap; gap:7px; margin-top:22px; }
 .modal-pills span {
-  font-family:var(--mono); font-size:.7rem; padding:4px 11px;
+  font-family:var(--mono); font-size:.72rem; padding:5px 12px;
   border-radius:5px; color:var(--ink-m);
-  border:1px solid var(--border); background:var(--cream);
+  border:1px solid var(--border); background:rgba(255,255,255,.7);
 }
 .modal-link {
   display:inline-flex; align-items:center; gap:6px;
-  margin-top:22px; font-size:.85rem; font-weight:600;
-  text-decoration:none; color:var(--navy);
-  transition:gap .2s;
+  margin-top:22px; font-size:.88rem; font-weight:600;
+  text-decoration:none; color:var(--navy); transition:gap .2s;
 }
 .modal-link:hover { gap:10px; }
-
-/* Filet latéral couleur dans le contenu modal */
-.modal-inner.ruled-univ {
-  border-left: 3px solid var(--gold);
-  padding-left: 28px;
-  margin-left: 12px;
-}
-.modal-inner.ruled-maroc {
-  border-left: 3px solid var(--red);
-  padding-left: 28px;
-  margin-left: 12px;
-}
-
-/* ── Effet parchemin froissé — vrai parchemin crème ── */
-.ruled-lines {
-  background-color: #f0e8d2;
-  background-image:
-    /* Plis diagonaux simulant le froissé */
-    linear-gradient(13deg,  transparent 47%, rgba(80,50,10,.04)  48%, rgba(80,50,10,.04)  49.5%, transparent 50.5%),
-    linear-gradient(-22deg, transparent 29%, rgba(60,35,8,.035)  30%, rgba(60,35,8,.035)  31.5%, transparent 32.5%),
-    linear-gradient(6deg,   transparent 67%, rgba(90,55,12,.04)  68%, rgba(90,55,12,.04)  69.5%, transparent 70.5%),
-    linear-gradient(-38deg, transparent 58%, rgba(55,35,8,.03)   59%, rgba(55,35,8,.03)   60.5%, transparent 61.5%),
-    linear-gradient(28deg,  transparent 81%, rgba(75,45,10,.035) 82%, rgba(75,45,10,.035) 83.5%, transparent 84.5%),
-    /* Vieillissement — bords plus foncés */
-    radial-gradient(ellipse 90% 30% at 50% 0%,    rgba(70,45,10,.10) 0%, transparent 100%),
-    radial-gradient(ellipse 90% 30% at 50% 100%,  rgba(70,45,10,.10) 0%, transparent 100%),
-    radial-gradient(ellipse 22% 100% at 0% 50%,   rgba(60,38,8,.08)  0%, transparent 100%),
-    radial-gradient(ellipse 22% 100% at 100% 50%, rgba(60,38,8,.08)  0%, transparent 100%),
-    /* Coins brunis */
-    radial-gradient(ellipse 28% 28% at 0% 0%,     rgba(55,32,5,.12)  0%, transparent 70%),
-    radial-gradient(ellipse 28% 28% at 100% 0%,   rgba(55,32,5,.12)  0%, transparent 70%),
-    radial-gradient(ellipse 28% 28% at 0% 100%,   rgba(55,32,5,.12)  0%, transparent 70%),
-    radial-gradient(ellipse 28% 28% at 100% 100%, rgba(55,32,5,.12)  0%, transparent 70%);
-  border: 1px solid rgba(110,75,20,.22);
-  box-shadow:
-    inset 0 0 70px rgba(90,60,15,.08),
-    inset 0 1px 0 rgba(255,248,225,.8),
-    0 2px 10px rgba(70,45,10,.12);
-  filter: url(#parchment-filter);
-  position: relative;
-}
-
-/* Texte encre sépia sur parchemin */
-.ruled-lines h2       { color: #18100a; }
-.ruled-lines p        { color: #271a08; line-height: 1.85; }
-.ruled-lines li       { color: #271a08; }
-.ruled-lines .modal-sub     { color: rgba(39,26,8,.48); letter-spacing:.06em; }
-.ruled-lines .modal-footer-line { border-top-color: rgba(120,80,20,.2); color: rgba(39,26,8,.42); }
-.ruled-lines .modal-pills span  { background: rgba(120,80,20,.12); border-color: rgba(120,80,20,.28); color: #3a2508; }
-.ruled-lines .modal-link        { color: #5a3208; }
-.ruled-lines strong { color: #120c04; }
-.ruled-maroc.ruled-lines { border-left: 3px solid rgba(192,57,43,.55); padding-left:28px; margin-left:12px; }
-.ruled-univ.ruled-lines  { border-left: 3px solid rgba(201,168,76,.65); padding-left:28px; margin-left:12px; }
 
 /* Pied de page modal */
 .modal-footer-line {
@@ -1279,4 +1236,184 @@ footer {
   text-align: center;
   max-width: 300px;
   line-height: 1.6;
+}
+
+/* ══════════════════════════════════════════════
+   CARTE STAGE — très grande en longueur et largeur
+══════════════════════════════════════════════ */
+.stage-card-wrap {
+  width: 100%;
+}
+
+.stage-big-card {
+  width: 100%;
+  min-height: 340px;
+}
+
+.stage-card-body {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  padding: 32px 36px !important;
+  align-items: start;
+}
+
+.stage-card-left h3 {
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  font-weight: 400;
+  letter-spacing: -.02em;
+  color: var(--ink);
+  margin: 8px 0 6px;
+  line-height: 1.2;
+}
+
+.stage-card-company {
+  font-family: var(--mono);
+  font-size: .75rem;
+  color: var(--s-a);
+  margin-bottom: 16px !important;
+  display: block;
+  letter-spacing: .04em;
+}
+
+.stage-missions-title {
+  font-family: var(--sans);
+  font-size: .8rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 14px !important;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+}
+
+.stage-missions-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.stage-missions-list li {
+  font-size: .88rem;
+  color: var(--ink-m);
+  line-height: 1.6;
+  display: flex;
+  gap: 10px;
+}
+
+.stage-missions-list li::before {
+  content: '→';
+  color: var(--s-a);
+  font-family: var(--mono);
+  flex-shrink: 0;
+}
+
+/* ══════════════════════════════════════════════
+   FLÈCHES DE NAVIGATION
+   - Cachées par défaut, apparaissent en bas de section
+   - Sorbonne : cercle navy/or
+   - Maroc : losange (tuile zellige) rouge/vert
+══════════════════════════════════════════════ */
+@keyframes arrow-bounce {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(8px); }
+}
+@keyframes arrow-bounce-diamond {
+  0%, 100% { transform: rotate(45deg) translateY(0); }
+  50%       { transform: rotate(45deg) translateY(8px); }
+}
+@keyframes glow-univ-arrow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(201,168,76,.6), 0 6px 24px rgba(41,51,88,.5); }
+  50%       { box-shadow: 0 0 0 14px rgba(201,168,76,0), 0 6px 24px rgba(41,51,88,.5); }
+}
+@keyframes glow-maroc-arrow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(192,57,43,.5), 0 0 0 3px rgba(46,125,82,.4); }
+  50%       { box-shadow: 0 0 0 12px rgba(192,57,43,0), 0 0 0 3px rgba(46,125,82,.4); }
+}
+
+/* Conteneur wrap — hidden par défaut */
+.next-arrow-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  margin-top: auto;
+  position: sticky;
+  bottom: 24px;
+  z-index: 10;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .4s ease;
+}
+
+/* Devient visible quand JS ajoute .visible */
+.next-arrow-wrap.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Base commune */
+.next-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  user-select: none;
+  transition: filter .2s;
+}
+.next-arrow:active { filter: brightness(.85); }
+
+/* ── Sorbonne : cercle navy + chevron doré ── */
+.next-arrow-univ {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: var(--navy);
+  color: var(--gold);
+  animation: arrow-bounce 2.2s ease-in-out infinite,
+             glow-univ-arrow 2.4s ease-in-out infinite;
+}
+.next-arrow-univ:hover { animation: none; transform: scale(1.12); }
+
+/* ── Maroc : losange = tuile zellige, double bord rouge/vert ── */
+.next-arrow-maroc {
+  width: 52px; height: 52px;
+  background: var(--navy-d);
+  /* Losange = carré pivoté 45° */
+  transform: rotate(45deg);
+  border-radius: 6px;
+  /* Double anneau : rouge extérieur, vert intérieur */
+  border: 3px solid var(--red);
+  box-shadow: inset 0 0 0 3px var(--green);
+  color: #fff;
+  animation: arrow-bounce-diamond 2.2s ease-in-out infinite,
+             glow-maroc-arrow 2.4s ease-in-out infinite;
+  position: relative;
+  overflow: hidden;
+}
+.next-arrow-maroc:hover { animation: none; transform: rotate(45deg) scale(1.12); }
+
+/* Zellige en filigrane dans le losange */
+.next-arrow-maroc::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='52' height='52'%3E%3Cg fill='none' stroke='rgba(255,255,255,0.18)' stroke-width='0.9'%3E%3Cpolygon points='26,5 28,16 38,11 33,20 44,23 33,26 38,35 28,30 26,41 24,30 14,35 19,26 8,23 19,20 14,11 24,16'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 52px 52px;
+  background-repeat: no-repeat;
+  background-position: center;
+  pointer-events: none;
+}
+
+/* Le chevron dans le losange doit être contre-rotatif */
+.next-arrow-maroc svg {
+  transform: rotate(-45deg);
+  position: relative;
+  z-index: 1;
+}
+
+.next-arrow-univ svg {
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,.4));
 }
