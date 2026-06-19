@@ -473,46 +473,86 @@ const DATA = {
    FEUILLE PHOTO — ajoutée automatiquement
    à la FIN de chaque carte de toutes les sections
 ───────────────────────────────────────────── */
-function photoFeuille(type) {
+function photoFeuille(type, photos = []) {
   const header = type === 'maroc'
-    ? hMaroc("Galerie photos", "Ajoute tes photos ici")
+    ? hMaroc("Galerie photos", "Espace photos")
     : hUniv("Galerie photos", "Illustrations visuelles");
   const footer = type === 'maroc' ? fMaroc() : fUniv();
+
+  function slot(src, isMain, label) {
+    if (src) {
+      return `<div class="photo-slot${isMain ? ' main' : ''} filled">
+        <img src="${src}" alt="${label}">
+      </div>`;
+    }
+    return `<div class="photo-slot${isMain ? ' main' : ''}">
+      <div class="photo-inner">
+        ${isMain ? `<svg viewBox="0 0 48 48" width="44" height="44" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="4" y="10" width="40" height="30" rx="3"/>
+          <circle cx="24" cy="24" r="8"/>
+          <path d="M4 10l7-6h26l7 6"/>
+          <circle cx="38" cy="16" r="2.5" fill="currentColor" stroke="none"/>
+        </svg><p>Photo principale</p>` : `<span>${label}</span>`}
+      </div>
+    </div>`;
+  }
+
   return {
     t: "Photos",
     h: header + `
       <div class="photo-feuille">
-        <div class="photo-slot main">
-          <input type="file" accept="image/*" title="Ajouter une photo principale">
-          <div class="photo-inner">
-            <svg viewBox="0 0 48 48" width="44" height="44" fill="none" stroke="currentColor" stroke-width="1.5">
-              <rect x="4" y="10" width="40" height="30" rx="3"/>
-              <circle cx="24" cy="24" r="8"/>
-              <path d="M4 10l7-6h26l7 6"/>
-              <circle cx="38" cy="16" r="2.5" fill="currentColor" stroke="none"/>
-            </svg>
-            <p>Photo principale</p>
-            <span>Cliquer pour sélectionner</span>
-          </div>
-        </div>
-        <div class="photo-slot">
-          <input type="file" accept="image/*" title="Ajouter une photo">
-          <div class="photo-inner"><p style="font-size:1.6rem;margin:0">+</p><span>Photo 2</span></div>
-        </div>
-        <div class="photo-slot">
-          <input type="file" accept="image/*" title="Ajouter une photo">
-          <div class="photo-inner"><p style="font-size:1.6rem;margin:0">+</p><span>Photo 3</span></div>
-        </div>
+        ${slot(photos[0], true, "Photo principale")}
+        ${slot(photos[1], false, "Photo 2")}
+        ${slot(photos[2], false, "Photo 3")}
       </div>
     ` + footer
   };
 }
 
+/* ─────────────────────────────────────────────
+   PHOTOS — un tableau [principale, photo2, photo3]
+   par carte. Laisse "" tant que tu n'as pas la photo.
+───────────────────────────────────────────── */
+const PHOTOS = {
+  presentation: [
+    ["", "", ""], // 0 — Me présenter
+    ["", "", ""], // 1 — Ce que j'apprécie
+    ["", "", ""], // 2 — Qualités
+    ["", "", ""], // 3 — Objectifs académiques
+    ["", "", ""], // 4 — Objectifs pro
+  ],
+  sae: [
+    ["", "", ""], // 0  — SAÉ 1.01
+    ["", "", ""], // 1  — SAÉ 1.02
+    ["", "", ""], // 2  — SAÉ 1.03
+    ["", "", ""], // 3  — SAÉ 2.01
+    ["", "", ""], // 4  — SAÉ 2.02
+    ["", "", ""], // 5  — SAÉ 2.03
+    ["", "", ""], // 6  — SAÉ 3.01
+    ["", "", ""], // 7  — SAÉ 3.02
+    ["", "", ""], // 8  — SAÉ 3.03
+    ["", "", ""], // 9  — SAÉ 4.01
+    ["", "", ""], // 10 — SAÉ 4.02
+    ["", "", ""], // 11 — SAÉ 4.03
+  ],
+  projets: [
+    ["", "", ""], // 0 — Projet data
+    ["", "", ""], // 1 — Football
+    ["", "", ""], // 2 — Culture marocaine
+  ],
+  stage: [
+    ["", "", ""], // 0 — Stage
+  ]
+};
+
 /* Ajouter la feuille photo à chaque carte */
 const marocGroups = ['presentation', 'projets'];
 Object.entries(DATA).forEach(([group, cards]) => {
   const type = marocGroups.includes(group) ? 'maroc' : 'univ';
-  cards.forEach(card => card.pages.push(photoFeuille(type)));
+  cards.forEach((card, i) => {
+    const photos = (PHOTOS[group] && PHOTOS[group][i]) || [];
+    card.pages.push(photoFeuille(type, photos));
+  });
 });
 
 /* ═══════════════════════════════════════════
@@ -628,12 +668,14 @@ const observer = new IntersectionObserver((entries) => {
         e.target.classList.add("snapped");
       }
       /* Nav active */
+      let currentSectionId = 'hero';
       const id = e.target.getAttribute("id");
-      if (id) {
-        navAs.forEach(a => {
-          a.style.color = a.getAttribute("href") === `#${id}` ? "var(--gold-l)" : "";
-        });
-      }
+if (id) {
+  currentSectionId = id;   /* ← ajouté */
+  navAs.forEach(a => {
+    a.style.color = a.getAttribute("href") === `#${id}` ? "var(--gold-l)" : "";
+  });
+}
     }
   });
 }, {
@@ -651,6 +693,7 @@ document.querySelectorAll("nav a[href^='#'], a.btn-primary[href^='#']").forEach(
     const target = document.getElementById(id);
     if (target) {
       e.preventDefault();
+      unlockedBottom = computeSectionBottom(id);
       target.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   });
@@ -663,6 +706,16 @@ const sectionOrder = ['hero','presentation','competences','sae','projets','stage
 const marocSections = new Set(['presentation','projets','bilan','hero']);
 
 const scrollContainer = document.querySelector('.window');
+
+function blockScrollUnlessHero(e) {
+  if (currentSectionId !== 'hero') {
+    e.preventDefault();
+  }
+}
+if (scrollContainer) {
+  scrollContainer.addEventListener('wheel', blockScrollUnlessHero, { passive: false });
+  scrollContainer.addEventListener('touchmove', blockScrollUnlessHero, { passive: false });
+}
 
 /* Créer les flèches */
 const arrowWraps = {};
@@ -693,10 +746,11 @@ sectionOrder.forEach((id, i) => {
     </svg>
   `;
 
-  btn.addEventListener('click', () => {
+ btn.addEventListener('click', () => {
     const target = document.getElementById(nextId);
 
     if (target && scrollContainer) {
+      unlockedBottom = computeSectionBottom(nextId);
       target.scrollIntoView({
         behavior: 'smooth',
         block: 'start'
@@ -737,4 +791,68 @@ if (scrollContainer) {
 
   }, { passive: true });
 
+}
+
+/* Afficher la flèche près du bas */
+if (scrollContainer) {
+
+  scrollContainer.addEventListener('scroll', () => {
+
+    const st = scrollContainer.scrollTop;
+    const ch = scrollContainer.clientHeight;
+
+    sectionOrder.forEach((id) => {
+
+      const sec = document.getElementById(id);
+      const wrap = arrowWraps[id];
+
+      if (!sec || !wrap) return;
+
+      const secBottom =
+        sec.offsetTop +
+        sec.offsetHeight;
+
+      if (st + ch >= secBottom - 160) {
+        wrap.classList.add('visible');
+      }
+
+    });
+
+  }, { passive: true });
+
+}
+
+let unlockedBottom = Infinity;
+
+function computeSectionBottom(id) {
+  const sec = document.getElementById(id);
+  return sec ? sec.offsetTop + sec.offsetHeight : Infinity;
+}
+
+let touchStartY = 0;
+
+function blockScrollBeyondUnlocked(e) {
+  if (!scrollContainer) return;
+  const maxAllowed = unlockedBottom - scrollContainer.clientHeight;
+
+  if (scrollContainer.scrollTop < maxAllowed - 1) return; /* marge dispo : scroll libre */
+
+  if (e.type === 'wheel') {
+    if (e.deltaY > 0) e.preventDefault();
+  } else if (e.type === 'touchmove' && e.touches && e.touches[0]) {
+    const currentY = e.touches[0].clientY;
+    const deltaY = touchStartY - currentY;
+    if (deltaY > 0) e.preventDefault();
+  }
+}
+
+if (scrollContainer) {
+  unlockedBottom = computeSectionBottom('hero');
+
+  scrollContainer.addEventListener('touchstart', (e) => {
+    if (e.touches && e.touches[0]) touchStartY = e.touches[0].clientY;
+  }, { passive: true });
+
+  scrollContainer.addEventListener('wheel', blockScrollBeyondUnlocked, { passive: false });
+  scrollContainer.addEventListener('touchmove', blockScrollBeyondUnlocked, { passive: false });
 }
