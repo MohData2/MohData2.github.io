@@ -1,9 +1,7 @@
 /* ═══════════════════════════════════════════
    HELPERS DÉCORATION MODALES
-   Géométrique pur — aucun emoji / texte culturel
 ═══════════════════════════════════════════ */
 
-/* Sorbonne : sceau SVG + bande navy/or */
 function hUniv(title, sub) {
   return `
 <div class="modal-univ-header">
@@ -31,7 +29,6 @@ function fUniv() {
   return `<div class="modal-footer-line"><span>BUT Science des données · Sorbonne Paris Nord</span><span>2024–2025</span></div></div>`;
 }
 
-/* Maroc : bande rouge/vert + watermark zellige, sans texte culturel */
 function hMaroc(title, sub) {
   return `
 <div class="modal-maroc-header">
@@ -50,7 +47,6 @@ function fMaroc() {
   return `<div class="modal-footer-line"><span>Passeport culturel</span></div></div>`;
 }
 
-/* Li helper */
 function li(t) { return `<li>${t}</li>`; }
 
 /* ═══════════════════════════════════════════
@@ -64,9 +60,17 @@ const DATA = {
     /* Carte 0 — Me présenter */
     { pages: [
       { t:"Me présenter", h: hMaroc("Qui suis-je ?","Présentation") + `
-        <p>Étudiant en BUT Sciences des Données, une formation pluridisciplinaire qui me permet d'acquérir des compétences solides en statistiques, programmation, SQL, traitement et visualisation de données, mais aussi en gestion de projet et en communication scientifique.</p>
+        <p>Étudiant en 2ème année de BUT Sciences des Données, une formation pluridisciplinaire qui me permet d'acquérir des compétences solides en statistiques, programmation, SQL, traitement et visualisation de données, mais aussi en gestion de projet et en communication scientifique.</p>
         <p>Je suis passionné depuis longtemps par les chiffres et la logique, surtout lorsqu'ils s'appliquent à des situations concrètes. Ce qui me caractérise aujourd'hui, c'est ma volonté de mobiliser ces compétences de manière rigoureuse et réfléchie pour comprendre, modéliser et résoudre des problématiques réelles.</p>
-        <p>Je suis licencié à l'ESP 18 — je pratique le football en club depuis mon plus jeune âge. J'y suis coach depuis plusieurs saisons : après avoir encadré l'équipe U-12, je suis cette année passé coach de l'équipe U-16, avec qui nous avons décroché la montée — une fierté qui n'est pas rien.</p>
+        <p>Je suis licencié à l'ESP 18. Cette année, je suis coach de l'équipe U-16, avec qui nous avons décroché la montée — une fierté qui n'est pas rien.</p>
+      ` + `
+      <div class="photo-feuille">
+        <div class="photo-slot main filled">
+          <img src="images/IMG_1415.jpeg" alt="Mohammed"/>
+        </div>
+        <div class="photo-slot"><div class="photo-inner"><span>Photo 2</span></div></div>
+        <div class="photo-slot"><div class="photo-inner"><span>Photo 3</span></div></div>
+      </div>
       ` + fMaroc() }
     ]},
 
@@ -78,10 +82,10 @@ const DATA = {
       ` + fMaroc() }
     ]},
 
-    /* Carte 2 — Qualités — 1 feuille par qualité (3 qualités) */
+    /* Carte 2 — Qualités */
     { pages: [
       { t:"Adaptabilité", h: hMaroc("Adaptabilité et sens de l'organisation","Qualité 1 / 3 · utilise les flèches →") + `
-        <p>En tant que coach de foot, j'ai appris à m'adapter rapidement aux imprévus (absences, météo, changements de dernière minute) tout en gardant une organisation claire des séances et des objectifs de progression.</p>
+        <p>En tant que coach de l'équipe U-16 à l'ESP 18, j'ai appris à m'adapter rapidement aux imprévus (absences, météo, changements de dernière minute) tout en gardant une organisation claire des séances et des objectifs de progression.</p>
         <p>Cette capacité à m'adapter et à planifier efficacement me sert aussi dans mes projets en BUT SD, où il faut souvent jongler entre plusieurs livrables et ajuster la méthode selon les contraintes.</p>
       ` + fMaroc() },
       { t:"Communication & équipe", h: hMaroc("Communication et travail en équipe","Qualité 2 / 3") + `
@@ -103,11 +107,11 @@ const DATA = {
       ` + fMaroc() }
     ]},
 
-    /* Carte 4 — Objectifs pro */
+    /* Carte 4 — Objectifs professionnels */
     { pages: [
       { t:"Objectifs professionnels", h: hMaroc("Objectifs professionnels","Vision carrière") + `
-        <p>Je souhaite devenir data analyst dans le monde du sport, un domaine qui me passionne profondément. J'ai grandi avec le football, que je pratique en club depuis mon plus jeune âge. Aujourd'hui encore, je suis licencié à l'ESP 18, où je suis cette année coach de l'équipe U-16 — avec qui nous avons décroché la montée — un rôle qui me pousse à observer, à évaluer et à améliorer les performances, à l'échelle individuelle comme collective.</p>
-        <p>Le lien avec l'analyse de données me semble évident : comprendre un match, évaluer un joueur, identifier des tendances, tout cela peut être renforcé par une approche rigoureuse basée sur les données.</p>
+        <p>Je souhaite devenir data analyst dans le monde du sport, un domaine qui me passionne profondément. J'ai grandi avec le football, que je pratique en club depuis mon plus jeune âge. Aujourd'hui encore, je suis licencié à l'ESP 18, où je suis coach de l'équipe U-16 cette année — avec qui nous avons décroché la montée.</p>
+        <p>Le lien avec l'analyse de données me semble évident : comprendre un match, évaluer un joueur, identifier des tendances, tout cela peut être renforcé par une approche rigoureuse basée sur les données. C'est d'ailleurs ce qui motive mon objectif de devenir data analyst dans le sport.</p>
       ` + fMaroc() }
     ]}
   ],
@@ -150,7 +154,7 @@ const DATA = {
     { pages: [
       { t:"R", h: hUniv("R","Compétence technique") + `
         <p>J'ai utilisé R dans le cadre de cours et d'exercices orientés statistiques. Cela m'a permis d'expérimenter d'autres méthodes d'analyse et d'enrichir ma vision des outils disponibles.</p>
-        <div class="modal-pills"><span>Statistiques</span></div>
+        <div class="modal-pills"><span>Statistiques</span><span>Visualisation</span></div>
       ` + fUniv() }
     ]},
     /* 5 — Sphinx */
@@ -184,6 +188,41 @@ const DATA = {
     { pages: [
       { t:"Communication & vulgarisation", h: hUniv("Communication et vulgarisation","Compétence transversale") + `
         <p>Je m'efforce toujours de rendre mes analyses accessibles, notamment dans les rapports ou lors des présentations orales. Je m'adapte au public et structure mes idées pour faciliter la compréhension, même pour un auditoire non spécialiste.</p>
+      ` + fUniv() }
+    ]},
+    /* 10 — Streamlit */
+    { pages: [
+      { t:"Streamlit", h: hUniv("Streamlit","Autre outil") + `
+        <p>J'ai utilisé Streamlit pour créer des applications web interactives directement en Python, sans avoir besoin de compétences en développement front-end. Cet outil m'a permis de déployer rapidement des dashboards et des outils d'exploration de données, en rendant mes analyses accessibles à travers une interface simple et intuitive.</p>
+        <div class="modal-pills"><span>Python</span><span>Applications web</span><span>Déploiement</span></div>
+      ` + fUniv() }
+    ]},
+    /* 11 — Shiny */
+    { pages: [
+      { t:"Shiny", h: hUniv("Shiny","Autre outil") + `
+        <p>J'ai utilisé R Shiny pour développer des applications interactives permettant d'explorer des données dynamiquement. Shiny m'a permis de combiner la puissance statistique de R avec une interface utilisateur réactive, idéale pour présenter des résultats d'analyse de manière visuelle et accessible.</p>
+        <div class="modal-pills"><span>R</span><span>Applications interactives</span><span>Dataviz</span></div>
+      ` + fUniv() }
+    ]},
+    /* 12 — LaTeX */
+    { pages: [
+      { t:"LaTeX", h: hUniv("LaTeX","Autre outil") + `
+        <p>J'ai appris à rédiger des documents scientifiques structurés avec LaTeX, notamment dans le cadre de rapports de SAE. LaTeX m'a permis de produire des rendus professionnels avec une mise en forme rigoureuse : équations, tableaux, bibliographies et numérotation automatique, selon les standards académiques.</p>
+        <div class="modal-pills"><span>Rédaction scientifique</span><span>Rapports</span><span>Mise en forme</span></div>
+      ` + fUniv() }
+    ]},
+    /* 13 — GitHub */
+    { pages: [
+      { t:"GitHub", h: hUniv("GitHub","Autre outil") + `
+        <p>J'utilise GitHub pour versionner mes projets et collaborer efficacement en équipe. Git me permet de suivre l'évolution de mon code, de gérer les branches et les fusions, et de revenir sur des versions antérieures si nécessaire. GitHub me sert aussi à documenter mes projets et à les partager dans un contexte professionnel ou académique.</p>
+        <div class="modal-pills"><span>Versioning</span><span>Collaboration</span><span>Open source</span></div>
+      ` + fUniv() }
+    ]},
+    /* 14 — ACP */
+    { pages: [
+      { t:"ACP", h: hUniv("ACP — Analyse en Composantes Principales","Autre outil · Méthode statistique") + `
+        <p>J'ai appliqué l'Analyse en Composantes Principales (ACP) pour réduire la dimensionnalité de jeux de données complexes et en extraire les axes de variabilité principaux. Cette méthode m'a permis de visualiser des structures cachées dans les données et de faciliter leur interprétation, notamment pour identifier des groupes ou des tendances dans des datasets multivariés.</p>
+        <div class="modal-pills"><span>Réduction de dimension</span><span>Statistiques multivariées</span><span>R / Python</span></div>
       ` + fUniv() }
     ]}
   ],
@@ -433,7 +472,7 @@ const DATA = {
     /* 1 — Football */
     { pages: [
       { t:"Football — Passion", h: hMaroc("Ma passion pour le football","Feuille 1 / 3 · utilise les flèches →") + `
-        <p>Je pratique le football en club depuis mon plus jeune âge. Aujourd'hui encore, je suis licencié à l'ESP 18, où je suis cette année coach de l'équipe U-16 — avec qui nous avons décroché la montée, une fierté qui n'est pas rien — un rôle qui me pousse à observer, évaluer et améliorer les performances, à l'échelle individuelle comme collective.</p>
+        <p>Je pratique le football en club depuis mon plus jeune âge. Aujourd'hui encore, je suis licencié à l'ESP 18, où je suis coach de l'équipe U-16 cette année — avec qui nous avons décroché la montée, une fierté qui n'est pas rien — un rôle qui me pousse à observer, évaluer et améliorer les performances, à l'échelle individuelle comme collective.</p>
         <p>[Décris ce que le football t'a appris : collectif, résilience, tactique, clubs suivis, joueurs préférés…]</p>
       ` + fMaroc() },
       { t:"Football — Maroc 2022", h: hMaroc("Maroc — Mondial Qatar 2022","Feuille 2 / 3") + `
@@ -505,108 +544,41 @@ const DATA = {
         </ul>
       ` + fUniv() }
     ]}
+  ],
+
+  /* ── 06 BILAN ── style MAROC */
+  bilan: [
+    /* Carte 0 — Ce dont je suis le plus fier */
+    { pages: [
+      { t:"Ce dont je suis le plus fier", h: hMaroc("Ce dont je suis le plus fier","Bilan · feuille 1 / 2") + `
+        <p>L'une de mes plus grandes fiertés est d'avoir été admis dans la formation BUT Sciences des Données. Dès Parcoursup, j'ai été retenu parmi plus de 6 000 candidats, ce qui a renforcé ma motivation et ma confiance en mes capacités. Par la suite, j'ai réussi les épreuves de sélection face à plus de 500 élèves pour valider mon admission définitive. Être choisi dans un cursus aussi sélectif est pour moi une reconnaissance importante de mon travail, de ma rigueur et de mon intérêt sincère pour les sciences des données.</p>
+      ` + fMaroc() },
+      { t:"Fierté — Engagement sportif", h: hMaroc("Mon engagement en tant que coach","Bilan · feuille 2 / 2") + `
+        <p>En dehors du cadre scolaire, je suis également très fier de mon engagement en tant que coach sportif. Accompagner mon équipe U-16 tout au long de la saison m'a permis de développer des qualités humaines essentielles comme l'écoute, la gestion de groupe, la pédagogie et la motivation collective.</p>
+        <p>Ce qui me rend particulièrement fier, c'est d'avoir décroché la montée avec eux, mais aussi de voir mes joueurs progresser, prendre confiance, et exprimer clairement leur envie de me retrouver comme coach l'année suivante. Leur reconnaissance et leur engagement sont une vraie source de motivation pour moi, et cette expérience m'aide autant sur le plan personnel que dans mon développement professionnel.</p>
+      ` + fMaroc() }
+    ]},
+
+    /* Carte 1 — Objectifs (3 feuilles) */
+    { pages: [
+      { t:"Objectifs — Court terme", h: hMaroc("Objectifs à court terme","Bilan · feuille 1 / 3 · utilise les flèches →") + `
+        <p>Actuellement en 2ème année de BUT Sciences des Données, mon objectif à court terme est double : réussir ma formation avec sérieux et engagement, tout en préparant activement ma recherche d'alternance.</p>
+        <p>L'alternance représente pour moi bien plus qu'un simple rythme d'apprentissage : c'est une véritable opportunité de m'immerger dans le monde professionnel, de mettre en pratique les compétences techniques acquises en cours, et d'acquérir une expérience concrète dans le domaine de l'analyse de données.</p>
+        <p>C'est pourquoi je suis déjà pleinement investi dans ma recherche. Je construis progressivement un LinkedIn pour valoriser mes projets, je prépare mes candidatures avec attention, et je reste curieux et motivé pour apprendre en dehors des cours, notamment à travers la pratique régulière de langages comme SQL et Python.</p>
+      ` + fMaroc() },
+      { t:"Objectifs — Moyen terme", h: hMaroc("Objectifs à moyen terme","Bilan · feuille 2 / 3") + `
+        <p>À la suite de mon BUT Sciences des Données, je souhaite poursuivre mes études en intégrant un master spécialisé en data science, en statistique appliquée, ou en lien direct avec l'analyse de données pour le sport. Parmi les formations qui m'intéressent figurent par exemple le Master STAPS spécialité Data Sport, ou des Masters en data science avec une ouverture vers des projets sportifs.</p>
+        <p>Durant cette période, je souhaite également multiplier les expériences professionnelles, à travers des stages, alternances ou projets en entreprise. Mon objectif est d'arriver sur le marché de l'emploi avec un profil complet : solide techniquement, capable de comprendre les enjeux métiers, et déjà expérimenté sur le terrain.</p>
+        <div class="modal-pills"><span>Python</span><span>SQL</span><span>Power BI</span><span>R</span></div>
+      ` + fMaroc() },
+      { t:"Objectifs — Long terme", h: hMaroc("Objectifs à long terme","Bilan · feuille 3 / 3") + `
+        <p>Dans une dizaine d'années, je me projette en tant que data analyst confirmé, spécialisé dans le domaine du sport. Passionné depuis toujours par le sport, et aujourd'hui fortement intéressé par les données et leur impact dans les prises de décision, je souhaite associer ces deux centres d'intérêt dans ma carrière.</p>
+        <p>À terme, j'aimerais travailler pour un club sportif professionnel, une fédération, une entreprise spécialisée dans l'analyse de la performance, ou encore une startup innovante développant des outils technologiques pour le sport : analyse des performances des joueurs, optimisation des stratégies d'équipe, prévention des blessures, analyse du comportement des fans.</p>
+        <p>À plus long terme, j'aimerais également évoluer vers un poste à responsabilité, en encadrant une équipe de data analysts ou en pilotant des projets de grande envergure liés à la donnée sportive.</p>
+      ` + fMaroc() }
+    ]}
   ]
 };
-
-/* ─────────────────────────────────────────────
-   FEUILLE PHOTO — ajoutée automatiquement
-   à la FIN de chaque carte de toutes les sections
-───────────────────────────────────────────── */
-function photoFeuille(type, photos = []) {
-  const header = type === 'maroc'
-    ? hMaroc("Galerie photos", "Espace photos")
-    : hUniv("Galerie photos", "Illustrations visuelles");
-  const footer = type === 'maroc' ? fMaroc() : fUniv();
-
-  function slot(src, isMain, label) {
-    if (src) {
-      return `<div class="photo-slot${isMain ? ' main' : ''} filled">
-        <img src="${src}" alt="${label}">
-      </div>`;
-    }
-    return `<div class="photo-slot${isMain ? ' main' : ''}">
-      <div class="photo-inner">
-        ${isMain ? `<svg viewBox="0 0 48 48" width="44" height="44" fill="none" stroke="currentColor" stroke-width="1.5">
-          <rect x="4" y="10" width="40" height="30" rx="3"/>
-          <circle cx="24" cy="24" r="8"/>
-          <path d="M4 10l7-6h26l7 6"/>
-          <circle cx="38" cy="16" r="2.5" fill="currentColor" stroke="none"/>
-        </svg><p>Photo principale</p>` : `<span>${label}</span>`}
-      </div>
-    </div>`;
-  }
-
-  return {
-    t: "Photos",
-    h: header + `
-      <div class="photo-feuille">
-        ${slot(photos[0], true, "Photo principale")}
-        ${slot(photos[1], false, "Photo 2")}
-        ${slot(photos[2], false, "Photo 3")}
-      </div>
-    ` + footer
-  };
-}
-
-/* ─────────────────────────────────────────────
-   PHOTOS — un tableau [principale, photo2, photo3]
-   par carte. Laisse "" tant que tu n'as pas la photo.
-───────────────────────────────────────────── */
-const PHOTOS = {
-  presentation: [
-    ["", "", ""], // 0 — Me présenter
-    ["", "", ""], // 1 — Ce que j'apprécie
-    ["", "", ""], // 2 — Qualités
-    ["", "", ""], // 3 — Objectifs académiques
-    ["", "", ""], // 4 — Objectifs pro
-  ],
-  competences: [
-    ["", "", ""], // 0 — Python
-    ["", "", ""], // 1 — SQL
-    ["", "", ""], // 2 — Excel
-    ["", "", ""], // 3 — Tableau Desktop
-    ["", "", ""], // 4 — R
-    ["", "", ""], // 5 — Sphinx
-    ["", "", ""], // 6 — Analyse de données
-    ["", "", ""], // 7 — Visualisation de données
-    ["", "", ""], // 8 — Gestion de projet
-    ["", "", ""], // 9 — Communication et vulgarisation
-  ],
-  sae: [
-    ["", "", ""], // 0  — SAÉ 1.01
-    ["", "", ""], // 1  — SAÉ 1.02
-    ["", "", ""], // 2  — SAÉ 1.03
-    ["", "", ""], // 3  — SAÉ 2.01
-    ["", "", ""], // 4  — SAÉ 2.02
-    ["", "", ""], // 5  — SAÉ 2.03
-    ["", "", ""], // 6  — SAÉ 3.01
-    ["", "", ""], // 7  — SAÉ 3.02
-    ["", "", ""], // 8  — SAÉ 3.03
-    ["", "", ""], // 9  — SAÉ 4.01
-    ["", "", ""], // 10 — SAÉ 4.02
-    ["", "", ""], // 11 — SAÉ 4.03
-  ],
-  projets: [
-    ["", "", ""], // 0 — Projet data
-    ["", "", ""], // 1 — Football
-    ["", "", ""], // 2 — Culture marocaine
-  ],
-  stage: [
-    ["", "", ""], // 0 — Stage
-  ]
-};
-
-/* Ajouter la feuille photo à chaque carte
-   (pour la section "presentation", uniquement la carte 0 — Me présenter) */
-const marocGroups = ['presentation', 'projets'];
-Object.entries(DATA).forEach(([group, cards]) => {
-  const type = marocGroups.includes(group) ? 'maroc' : 'univ';
-  cards.forEach((card, i) => {
-    if (group === 'presentation' && i !== 0) return;
-    const photos = (PHOTOS[group] && PHOTOS[group][i]) || [];
-    card.pages.push(photoFeuille(type, photos));
-  });
-});
 
 /* ═══════════════════════════════════════════
    ÉTAT & DOM
@@ -638,7 +610,6 @@ function render(dir = null) {
   const tot   = pages.length;
   titleEl.textContent = pg.t;
 
-  /* Transition directionnelle */
   if (dir) {
     const outClass = dir === 'next' ? 'slide-out-right' : 'slide-out-left';
     const inClass  = dir === 'next' ? 'slide-in-right'  : 'slide-in-left';
@@ -666,7 +637,6 @@ function render(dir = null) {
 
 btnN.addEventListener("click", () => { if (pIdx < DATA[grp][cIdx].pages.length-1) { pIdx++; render('next'); body.scrollTop=0; } });
 btnP.addEventListener("click", () => { if (pIdx > 0) { pIdx--; render('prev'); body.scrollTop=0; } });
-/* Fermeture : point rouge ET point jaune */
 btnClose.addEventListener("click", close);
 document.getElementById("modalMinimize").addEventListener("click", close);
 overlay.addEventListener("click", e => { if (e.target===overlay) close(); });
@@ -699,25 +669,17 @@ document.querySelectorAll(".filter-btn").forEach(btn => {
   });
 });
 
-/* ── Scroll reveal + snap animation + nav active ── */
+/* ── Scroll reveal + nav active ── */
 const winScroll = document.querySelector(".window");
 const sections  = document.querySelectorAll("section[id], footer[id]");
 const navAs     = document.querySelectorAll("nav a");
 const revEls    = document.querySelectorAll(".reveal");
 
-/* IntersectionObserver sur le conteneur .window */
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     if (e.isIntersecting) {
-      /* Reveal général */
-      if (e.target.classList.contains("reveal")) {
-        e.target.classList.add("active");
-      }
-      /* Animation snap-in sur les sections — une seule fois */
-      if (e.target.classList.contains("section") && !e.target.classList.contains("snapped")) {
-        e.target.classList.add("snapped");
-      }
-      /* Nav active */
+      if (e.target.classList.contains("reveal")) e.target.classList.add("active");
+      if (e.target.classList.contains("section") && !e.target.classList.contains("snapped")) e.target.classList.add("snapped");
       const id = e.target.getAttribute("id");
       if (id) {
         navAs.forEach(a => {
@@ -726,22 +688,15 @@ const observer = new IntersectionObserver((entries) => {
       }
     }
   });
-}, {
-  root: winScroll,
-  threshold: 0.3
-});
+}, { root: winScroll, threshold: 0.3 });
 
 sections.forEach(s => observer.observe(s));
 revEls.forEach(el => observer.observe(el));
 
-/* ── Nav links : défilement dans .window ── */
 document.querySelectorAll("nav a[href^='#'], a.btn-primary[href^='#']").forEach(a => {
   a.addEventListener("click", e => {
     const id = a.getAttribute("href").slice(1);
     const target = document.getElementById(id);
-    if (target) {
-      e.preventDefault();
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
+    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: "smooth", block: "start" }); }
   });
 });
