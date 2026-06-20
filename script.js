@@ -65,12 +65,16 @@ const DATA = {
         <p>Je suis licencié à l'ESP 18. Cette année, je suis coach de l'équipe U-16, avec qui nous avons décroché la montée — une fierté qui n'est pas rien.</p>
       ` + `
       <div class="photo-feuille">
-        <div class="photo-slot main filled">
-          <img src="images/IMG_1415.jpeg" alt="Mohammed"/>
-        </div>
-        <div class="photo-slot"><div class="photo-inner"><span>Photo 2</span></div></div>
-        <div class="photo-slot"><div class="photo-inner"><span>Photo 3</span></div></div>
-      </div>
+  <div class="photo-slot main filled">
+    <img src="images/IMG_6773.jpeg" alt="Mohammed"/>
+  </div>
+  <div class="photo-slot filled">
+    <img src="images/IMG_2757.jpeg" alt="Mohammed"/>
+  </div>
+  <div class="photo-slot filled">
+    <img src="images/IMG_2759.jpeg" alt="Mohammed"/>
+  </div>
+</div>
       ` + fMaroc() }
     ]},
 
