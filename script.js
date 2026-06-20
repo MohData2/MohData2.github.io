@@ -303,7 +303,7 @@ const DATA = {
     ]}
   ],
 
-  /* ── 04 PASSEPORT CULTUREL ── style MAROC */
+ /* ── 04 PASSEPORT CULTUREL ── style MAROC */
   projets: [
     /* 0 — Semaine Internationale SPN */
     { pages: [
@@ -567,7 +567,7 @@ const observer = new IntersectionObserver((entries) => {
       if (id) navAs.forEach(a => { a.style.color = a.getAttribute("href") === `#${id}` ? "var(--gold-l)" : ""; });
     }
   });
-}, { root: winScroll, threshold: 0.3 });
+}, { threshold: 0.3 });
 
 sections.forEach(s => observer.observe(s));
 revEls.forEach(el => observer.observe(el));
