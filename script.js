@@ -303,7 +303,7 @@ const DATA = {
     ]}
   ],
 
- /* ── 04 PASSEPORT CULTUREL ── style MAROC */
+  /* ── 04 PASSEPORT CULTUREL ── style MAROC */
   projets: [
     /* 0 — Semaine Internationale SPN */
     { pages: [
