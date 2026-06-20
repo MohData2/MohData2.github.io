@@ -62,7 +62,7 @@ const DATA = {
       { t:"Me présenter", h: hMaroc("Qui suis-je ?","Présentation") + `
         <p>Étudiant en 2ème année de BUT Sciences des Données, une formation pluridisciplinaire qui me permet d'acquérir des compétences solides en statistiques, programmation, SQL, traitement et visualisation de données, mais aussi en gestion de projet et en communication scientifique.</p>
         <p>Je suis passionné depuis longtemps par les chiffres et la logique, surtout lorsqu'ils s'appliquent à des situations concrètes. Ce qui me caractérise aujourd'hui, c'est ma volonté de mobiliser ces compétences de manière rigoureuse et réfléchie pour comprendre, modéliser et résoudre des problématiques réelles.</p>
-        <p>Je suis licencié à l'ESP 18. Cette année, je suis coach de l'équipe U-16, avec qui nous avons décroché la montée — une fierté qui n'est pas rien.</p>
+        <p>Je suis licencié à l'ESP 18. Cette année, je suis coach de l'équipe U-16, avec qui nous avons décroché la montée, une fierté qui n'est pas rien.</p>
       ` + `
       <div class="photo-feuille">
   <div class="photo-slot main filled">
