@@ -366,7 +366,7 @@ const DATA = {
             <img src="images/IMG_2398.jpeg" alt="BUST IT WEEK — Leuven"/>
           </div>
           <div class="photo-slot">
-            <input type="file" accept="image/*" title="Ajouter une photo">
+            <input type="images/17170047-129b-4989-bb72-567439695a19.jpeg" accept="image/*" title="Ajouter une photo">
             <div class="photo-inner"><p style="font-size:1.6rem;margin:0">+</p><span>Photo 2</span></div>
           </div>
           <div class="photo-slot">
