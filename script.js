@@ -28,7 +28,7 @@ function hUniv(title, sub) {
 }
 
 function fUniv() {
-  return `<div class="modal-footer-line"><span>BUT Science des données · Sorbonne Paris Nord</span><span>Mohammed · 2024–2025</span></div></div>`;
+  return `<div class="modal-footer-line"><span>BUT Science des données · Sorbonne Paris Nord</span><span>2024–2025</span></div></div>`;
 }
 
 /* Maroc : bande rouge/vert + watermark zellige, sans texte culturel */
@@ -47,7 +47,7 @@ function hMaroc(title, sub) {
 }
 
 function fMaroc() {
-  return `<div class="modal-footer-line"><span>Mohammed</span><span>Passeport culturel</span></div></div>`;
+  return `<div class="modal-footer-line"><span>Passeport culturel</span></div></div>`;
 }
 
 /* Li helper */
@@ -63,91 +63,128 @@ const DATA = {
 
     /* Carte 0 — Me présenter */
     { pages: [
-      { t:"Me présenter", h: hMaroc("Qui suis-je ?","Présentation · feuille 1 / 2") + `
-        <p>Je m'appelle <strong>Mohammed</strong>, étudiant en 2ᵉ année de BUT Science des données à l'Université Sorbonne Paris Nord. Marocain, Parisien, data enthusiast.</p>
-        <p>[Complète ici : ville d'origine de ta famille, ton lycée, pourquoi la data…]</p>
-      ` + fMaroc() },
-      { t:"Mon parcours", h: hMaroc("Mon parcours","Présentation · feuille 2 / 2") + `
-        <ul>
-          ${li("[Bac obtenu, année, lycée]")}
-          ${li("2023 — Entrée en BUT Science des données, Sorbonne Paris Nord")}
-          ${li("2024 — 2ᵉ année, spécialisation [à compléter]")}
-          ${li("2025 — Stage chez [entreprise]")}
-          ${li("[Autre étape clé]")}
-        </ul>
+      { t:"Me présenter", h: hMaroc("Qui suis-je ?","Présentation") + `
+        <p>Étudiant en BUT Sciences des Données, une formation pluridisciplinaire qui me permet d'acquérir des compétences solides en statistiques, programmation, SQL, traitement et visualisation de données, mais aussi en gestion de projet et en communication scientifique.</p>
+        <p>Je suis passionné depuis longtemps par les chiffres et la logique, surtout lorsqu'ils s'appliquent à des situations concrètes. Ce qui me caractérise aujourd'hui, c'est ma volonté de mobiliser ces compétences de manière rigoureuse et réfléchie pour comprendre, modéliser et résoudre des problématiques réelles.</p>
+        <p>Je suis licencié à l'ESP 18 — je pratique le football en club depuis mon plus jeune âge. J'y suis coach depuis plusieurs saisons : après avoir encadré l'équipe U-12, je suis cette année passé coach de l'équipe U-16, avec qui nous avons décroché la montée — une fierté qui n'est pas rien.</p>
       ` + fMaroc() }
     ]},
 
     /* Carte 1 — Ce que j'apprécie */
     { pages: [
-      { t:"Ce que j'apprécie", h: hMaroc("Ce que j'apprécie dans ma formation","Formation BUT SD · feuille 1 / 2") + `
-        <p>La pluridisciplinarité — stats, programmation, bases de données, communication. Chaque SAÉ confronte la théorie à des cas réels.</p>
-        <p>[Ajoute ici ce que tu apprécies vraiment : les profs, les projets, l'ambiance, les intervenants…]</p>
-      ` + fMaroc() },
-      { t:"Points forts", h: hMaroc("Points forts de la formation","Formation BUT SD · feuille 2 / 2") + `
-        <ul>
-          ${li("Les SAÉ : projets concrets liés au monde professionnel.")}
-          ${li("La transversalité : stats, info, communication, gestion de projet.")}
-          ${li("Les intervenants professionnels qui partagent leur expérience terrain.")}
-          ${li("[À compléter avec ta propre expérience]")}
-        </ul>
+      { t:"Ce que j'apprécie", h: hMaroc("Ce que j'apprécie dans ma formation","Formation BUT SD") + `
+        <p>J'apprécie particulièrement l'équilibre entre théorie et pratique dans cette formation. Les enseignements sont approfondis sur le plan conceptuel, mais ils prennent tout leur sens à travers les Situations d'Apprentissage et d'Évaluation (SAE), qui nous placent en conditions quasi-professionnelles.</p>
+        <p>Ces projets concrets me permettent d'appliquer mes connaissances sur des cas réels et d'apprendre à travailler en équipe autour d'un objectif clair. J'y retrouve l'exigence, le sens du collectif et l'analyse de performance, autant de choses que je vis aussi en dehors de l'IUT.</p>
       ` + fMaroc() }
     ]},
 
-    /* Carte 2 — Qualités — 1 feuille par qualité */
+    /* Carte 2 — Qualités — 1 feuille par qualité (3 qualités) */
     { pages: [
-      { t:"Curiosité", h: hMaroc("La curiosité","Qualité 1 / 4 · utilise les flèches →") + `
-        <p>Toujours en veille — articles, conférences, nouveaux outils. [Donne un exemple concret : une techno apprise seul, un domaine exploré par intérêt…]</p>
-        <ul>
-          ${li("[Exemple : certification, MOOC, projet perso découvert par curiosité]")}
-          ${li("[Domaine qui t'attire au-delà du programme]")}
-        </ul>
+      { t:"Adaptabilité", h: hMaroc("Adaptabilité et sens de l'organisation","Qualité 1 / 3 · utilise les flèches →") + `
+        <p>En tant que coach de foot, j'ai appris à m'adapter rapidement aux imprévus (absences, météo, changements de dernière minute) tout en gardant une organisation claire des séances et des objectifs de progression.</p>
+        <p>Cette capacité à m'adapter et à planifier efficacement me sert aussi dans mes projets en BUT SD, où il faut souvent jongler entre plusieurs livrables et ajuster la méthode selon les contraintes.</p>
       ` + fMaroc() },
-      { t:"Rigueur", h: hMaroc("La rigueur","Qualité 2 / 4") + `
-        <p>Je documente mon code, valide mes résultats, m'assure que mes analyses sont reproductibles.</p>
-        <p>[Exemple : bug trouvé grâce à la rigueur, analyse recommencée, validation croisée imposée à toi-même…]</p>
+      { t:"Communication & équipe", h: hMaroc("Communication et travail en équipe","Qualité 2 / 3") + `
+        <p>Le rôle de coach m'a amené à gérer un groupe, à donner des consignes claires et à motiver les joueurs, tout en écoutant leurs besoins. J'échange aussi régulièrement avec d'autres coachs pour coordonner les entraînements, ajuster les objectifs et partager des retours.</p>
+        <p>Cette expérience m'a permis de développer une bonne communication, aussi bien au sein d'un groupe qu'entre collègues, ce qui est essentiel également dans les SAE où la réussite dépend de la coordination entre les membres du groupe.</p>
       ` + fMaroc() },
-      { t:"Collectif", h: hMaroc("Le sens du collectif","Qualité 3 / 4") + `
-        <p>La data science est rarement un sport individuel. J'aime travailler en équipe, partager mes connaissances, écouter les autres.</p>
-        <p>[Exemple : SAÉ en groupe, rôle dans l'équipe, désaccord résolu, aide apportée…]</p>
-      ` + fMaroc() },
-      { t:"Adaptabilité", h: hMaroc("L'adaptabilité","Qualité 4 / 4") + `
-        <p>Les outils changent, les méthodes évoluent. Ce qui ne change pas : la logique de raisonnement.</p>
-        <p>[Exemple : changement d'outil en cours de projet, nouvelle méthodo, passage Python/R selon le contexte…]</p>
+      { t:"Autonomie", h: hMaroc("Autonomie et prise d'initiative","Qualité 3 / 3") + `
+        <p>Je suis capable de travailler seul de manière efficace. Par exemple, lors d'une SAE en science des données, j'ai pris l'initiative de traiter les données avec Power Query dans Excel, un outil que je maîtrise bien.</p>
+        <p>Une fois les données nettoyées et structurées, j'ai utilisé Tableau pour créer des visualisations claires et interactives. Cette démarche personnelle a permis d'enrichir la restitution finale du groupe, sans attendre de consignes supplémentaires.</p>
       ` + fMaroc() }
     ]},
 
     /* Carte 3 — Objectifs académiques */
     { pages: [
       { t:"Objectifs académiques", h: hMaroc("Objectifs académiques","Court & moyen terme") + `
-        <ul>
-          ${li("Obtenir mon BUT Science des données avec mention.")}
-          ${li("Intégrer un master ou une LP Data Science / IA sélectif.")}
-          ${li("Approfondir le deep learning, le NLP et les méthodes bayésiennes.")}
-          ${li("Participer à des compétitions académiques (Kaggle, data challenges).")}
-          ${li("[Objectif supplémentaire personnel]")}
-        </ul>
-      ` + fMaroc() },
-      { t:"Vision long terme", h: hMaroc("Vision long terme","Objectifs · feuille 2 / 2") + `
-        <ul>
-          ${li("[Objectif à 5 ans]")}
-          ${li("[Objectif à 10 ans]")}
-          ${li("[Rêve ou ambition — international, recherche, entrepreneuriat…]")}
-        </ul>
+        <p>Je m'efforce de renforcer mes compétences techniques, en particulier en Python, en statistiques appliquées et en visualisation de données.</p>
+        <p>Je consacre du temps aux projets réalisés dans le cadre des SAE, qui me permettent de travailler sur des problématiques concrètes, en groupe, et de mobiliser les outils vus en cours. En parallèle, je mène également des projets personnels, qui me permettent d'explorer différentes sources de données et de m'exercer à leur traitement de manière autonome.</p>
+        <p>Ces expériences variées m'aident à construire un profil polyvalent, capable de s'adapter à différents domaines d'application, tout en gardant un regard analytique et rigoureux.</p>
       ` + fMaroc() }
     ]},
 
     /* Carte 4 — Objectifs pro */
     { pages: [
       { t:"Objectifs professionnels", h: hMaroc("Objectifs professionnels","Vision carrière") + `
-        <ul>
-          ${li("Trouver une alternance / stage dans une équipe data ambitieuse.")}
-          ${li("Devenir Data Analyst ou Junior Data Scientist.")}
-          ${li("Évoluer vers la modélisation prédictive et le MLOps.")}
-          ${li("Contribuer à des projets à impact : santé, environnement, sport…")}
-          ${li("[Ambition long terme à compléter]")}
-        </ul>
+        <p>Je souhaite devenir data analyst dans le monde du sport, un domaine qui me passionne profondément. J'ai grandi avec le football, que je pratique en club depuis mon plus jeune âge. Aujourd'hui encore, je suis licencié à l'ESP 18, où je suis cette année coach de l'équipe U-16 — avec qui nous avons décroché la montée — un rôle qui me pousse à observer, à évaluer et à améliorer les performances, à l'échelle individuelle comme collective.</p>
+        <p>Le lien avec l'analyse de données me semble évident : comprendre un match, évaluer un joueur, identifier des tendances, tout cela peut être renforcé par une approche rigoureuse basée sur les données.</p>
       ` + fMaroc() }
+    ]}
+  ],
+
+  /* ── 02 COMPÉTENCES ── style SORBONNE */
+  competences: [
+    /* 0 — Python */
+    { pages: [
+      { t:"Python", h: hUniv("Python","Compétence technique") + `
+        <p>J'utilise Python depuis le lycée, où j'ai suivi la spécialité NSI. Cela m'a permis d'acquérir de bonnes bases et de devenir à l'aise avec ce langage.</p>
+        <p>Dans le cadre du BUT SD, j'ai approfondi mes compétences en l'utilisant pour le traitement et l'analyse de données. Par exemple, dans une SAE, j'ai utilisé Python pour lire et exploiter des fichiers de données, et automatiser les analyses pour répondre à la problématique posée.</p>
+        <div class="modal-pills"><span>NSI</span><span>Traitement de données</span><span>Automatisation</span></div>
+      ` + fUniv() }
+    ]},
+    /* 1 — SQL */
+    { pages: [
+      { t:"SQL", h: hUniv("SQL","Compétence technique") + `
+        <p>Je maîtrise les requêtes de base et certaines requêtes plus avancées pour interroger des bases de données relationnelles.</p>
+        <p>Lors de différentes SAE, j'ai d'abord conçu un modèle entité-association, que j'ai utilisé pour créer les tables dans une base de données, puis peuplé celle-ci automatiquement avec des données pour pouvoir l'exploiter. Cela m'a permis de réaliser des analyses et des visualisations à partir des données.</p>
+        <p>Dans un autre projet, j'ai conçu et interrogé une base de données existante afin d'extraire des informations structurées pertinentes pour répondre à une problématique donnée.</p>
+        <div class="modal-pills"><span>Modèle entité-association</span><span>Bases relationnelles</span></div>
+      ` + fUniv() }
+    ]},
+    /* 2 — Excel */
+    { pages: [
+      { t:"Excel", h: hUniv("Excel","Compétence technique") + `
+        <p>Je sais utiliser Excel pour organiser, nettoyer et analyser des données. Je maîtrise les fonctions avancées, les filtres et les tableaux croisés dynamiques.</p>
+        <p>Dans une SAE, j'ai également utilisé Power Query pour importer et transformer des données, et Power Pivot pour modéliser les relations entre plusieurs tables. Ces outils m'ont permis de créer un tableau de bord complet et interactif, facilitant l'analyse et la synthèse des résultats.</p>
+        <div class="modal-pills"><span>Power Query</span><span>Power Pivot</span><span>TCD</span></div>
+      ` + fUniv() }
+    ]},
+    /* 3 — Tableau Desktop */
+    { pages: [
+      { t:"Tableau Desktop", h: hUniv("Tableau Desktop","Compétence technique") + `
+        <p>J'ai appris à créer des tableaux de bord interactifs et des histoires avec Tableau, ce qui m'a permis de rendre des résultats d'analyse plus accessibles et compréhensibles pour un public non technique.</p>
+        <div class="modal-pills"><span>Dashboards</span><span>Storytelling</span></div>
+      ` + fUniv() }
+    ]},
+    /* 4 — R */
+    { pages: [
+      { t:"R", h: hUniv("R","Compétence technique") + `
+        <p>J'ai utilisé R dans le cadre de cours et d'exercices orientés statistiques. Cela m'a permis d'expérimenter d'autres méthodes d'analyse et d'enrichir ma vision des outils disponibles.</p>
+        <div class="modal-pills"><span>Statistiques</span></div>
+      ` + fUniv() }
+    ]},
+    /* 5 — Sphinx */
+    { pages: [
+      { t:"Sphinx", h: hUniv("Sphinx","Compétence technique") + `
+        <p>J'ai utilisé Sphinx pour créer un questionnaire dans le cadre d'une SAE. Cet outil m'a permis de concevoir une enquête, de collecter des données réelles par moi-même en allant sur le terrain, et de mieux comprendre les réponses pour les analyser ensuite.</p>
+        <div class="modal-pills"><span>Enquêtes</span><span>Collecte terrain</span></div>
+      ` + fUniv() }
+    ]},
+    /* 6 — Analyse de données */
+    { pages: [
+      { t:"Analyse de données", h: hUniv("Analyse de données","Compétence transversale") + `
+        <p>Je suis capable d'explorer un jeu de données, d'en extraire les informations pertinentes et de produire une interprétation structurée et rigoureuse. J'ai appliqué ces compétences à différents jeux de données, aussi bien numériques que textuels.</p>
+      ` + fUniv() }
+    ]},
+    /* 7 — Visualisation de données */
+    { pages: [
+      { t:"Visualisation de données", h: hUniv("Visualisation de données","Compétence transversale") + `
+        <p>J'accorde une grande importance à la lisibilité des représentations graphiques. Je sais adapter les types de graphiques au type d'analyse, et j'utilise des outils comme R, Excel ou Tableau selon le besoin.</p>
+      ` + fUniv() }
+    ]},
+    /* 8 — Gestion de projet */
+    { pages: [
+      { t:"Gestion de projet", h: hUniv("Gestion de projet","Compétence transversale") + `
+        <p>Les SAE m'ont permis de développer des compétences en gestion de projet. J'ai appris à répartir les rôles efficacement avec des outils comme la matrice RACI, à coordonner les équipes, à planifier les tâches et à respecter les délais.</p>
+        <p>J'ai aussi su gérer les imprévus et adapter les plannings lorsque nécessaire. À plusieurs reprises, j'ai tenu un rôle de coordination, en assurant la circulation des informations et le suivi des objectifs. Ces expériences m'ont permis de développer une vision globale et de travailler efficacement en équipe.</p>
+        <div class="modal-pills"><span>Matrice RACI</span><span>Coordination</span><span>Planification</span></div>
+      ` + fUniv() }
+    ]},
+    /* 9 — Communication et vulgarisation */
+    { pages: [
+      { t:"Communication & vulgarisation", h: hUniv("Communication et vulgarisation","Compétence transversale") + `
+        <p>Je m'efforce toujours de rendre mes analyses accessibles, notamment dans les rapports ou lors des présentations orales. Je m'adapte au public et structure mes idées pour faciliter la compréhension, même pour un auditoire non spécialiste.</p>
+      ` + fUniv() }
     ]}
   ],
 
@@ -178,6 +215,7 @@ const DATA = {
     ]},
     /* 1 */ { pages: [
       { t:"SAÉ 1.02 — Base de données", h: hUniv("Conception d'une base de données","SAÉ 1.02 · Compétence : Traiter · Semestre 1") + `
+        <p>Conception d'un modèle entité-association puis création des tables dans une base de données, peuplée automatiquement afin d'être exploitée pour des analyses et visualisations.</p>
         <ul>
           ${li("Analyse du cahier des charges et identification des entités")}
           ${li("Schéma EA avec cardinalités")}
@@ -212,13 +250,14 @@ const DATA = {
     ]},
     /* 3 */ { pages: [
       { t:"SAÉ 2.01 — Dashboard", h: hUniv("Dashboard interactif","SAÉ 2.01 · Compétence : Valoriser · Semestre 2") + `
+        <p>Création d'un tableau de bord complet et interactif avec Power Query et Power Pivot dans Excel, facilitant l'analyse et la synthèse des résultats.</p>
         <ul>
           ${li("Définition des KPI avec le client fictif")}
           ${li("Maquettage de l'interface (wireframe)")}
-          ${li("Développement R Shiny")}
+          ${li("Développement R Shiny / Excel")}
           ${li("Tests utilisateurs et itérations")}
         </ul>
-        <div class="modal-pills"><span>R</span><span>Shiny</span><span>ggplot2</span></div>
+        <div class="modal-pills"><span>R</span><span>Shiny</span><span>Power Query</span><span>Power Pivot</span></div>
       ` + fUniv() },
       { t:"SAÉ 2.01 — Apprentissages", h: hUniv("Ce que j'ai appris","SAÉ 2.01 · feuille 2 / 2") + `
         <ul>
@@ -394,15 +433,15 @@ const DATA = {
     /* 1 — Football */
     { pages: [
       { t:"Football — Passion", h: hMaroc("Ma passion pour le football","Feuille 1 / 3 · utilise les flèches →") + `
-        <p>[Décris ta passion : depuis quand, comment tu le vis, quel rôle ça joue dans ta vie, clubs suivis, joueurs préférés…]</p>
-        <p>Le football m'a appris [les valeurs que tu veux mentionner : collectif, résilience, tactique…].</p>
+        <p>Je pratique le football en club depuis mon plus jeune âge. Aujourd'hui encore, je suis licencié à l'ESP 18, où je suis cette année coach de l'équipe U-16 — avec qui nous avons décroché la montée, une fierté qui n'est pas rien — un rôle qui me pousse à observer, évaluer et améliorer les performances, à l'échelle individuelle comme collective.</p>
+        <p>[Décris ce que le football t'a appris : collectif, résilience, tactique, clubs suivis, joueurs préférés…]</p>
       ` + fMaroc() },
       { t:"Football — Maroc 2022", h: hMaroc("Maroc — Mondial Qatar 2022","Feuille 2 / 3") + `
         <p>Premier pays africain et arabe à atteindre les demi-finales d'une Coupe du Monde. Un parcours historique.</p>
         <p>[Décris ce que tu as ressenti, comment tu as vécu ce parcours, ce que ça représente pour toi personnellement…]</p>
       ` + fMaroc() },
       { t:"Football × Data", h: hMaroc("Football × Data","Feuille 3 / 3") + `
-        <p>[As-tu utilisé la data pour analyser le foot ? xG, heat maps, stats de possession, modèles de prédiction…]</p>
+        <p>Le lien entre football et analyse de données me semble évident : comprendre un match, évaluer un joueur, identifier des tendances, tout cela peut être renforcé par une approche rigoureuse basée sur les données. C'est d'ailleurs ce qui motive mon objectif de devenir data analyst dans le sport.</p>
         <ul>
           ${li("[Clubs ou équipes que tu suis et analyses]")}
           ${li("[Projet ou analyse data autour du foot]")}
@@ -440,7 +479,7 @@ const DATA = {
       { t:"Intitulé du poste — Contexte", h: hUniv("Intitulé du poste","Stage · feuille 1 / 4") + `
         <p><strong>[Ton intitulé de poste]</strong> chez <strong>[Nom de l'entreprise]</strong> — [Ville] · [Durée]</p>
         <p>[Décris ici le contexte : type de structure (startup, grand groupe, ESN…), taille de l'équipe data, ton positionnement dans l'équipe.]</p>
-        <p>[En quoi cette expérience s'inscrit dans ton parcours data et tes objectifs professionnels ?]</p>
+        <p>[En quoi cette expérience s'inscrit dans ton parcours data et tes objectifs professionnels, notamment vers le data analyst sport ?]</p>
       ` + fUniv() },
       { t:"Missions réalisées", h: hUniv("Missions réalisées","Stage · feuille 2 / 4") + `
         <ul>
@@ -521,6 +560,18 @@ const PHOTOS = {
     ["", "", ""], // 3 — Objectifs académiques
     ["", "", ""], // 4 — Objectifs pro
   ],
+  competences: [
+    ["", "", ""], // 0 — Python
+    ["", "", ""], // 1 — SQL
+    ["", "", ""], // 2 — Excel
+    ["", "", ""], // 3 — Tableau Desktop
+    ["", "", ""], // 4 — R
+    ["", "", ""], // 5 — Sphinx
+    ["", "", ""], // 6 — Analyse de données
+    ["", "", ""], // 7 — Visualisation de données
+    ["", "", ""], // 8 — Gestion de projet
+    ["", "", ""], // 9 — Communication et vulgarisation
+  ],
   sae: [
     ["", "", ""], // 0  — SAÉ 1.01
     ["", "", ""], // 1  — SAÉ 1.02
@@ -545,11 +596,13 @@ const PHOTOS = {
   ]
 };
 
-/* Ajouter la feuille photo à chaque carte */
+/* Ajouter la feuille photo à chaque carte
+   (pour la section "presentation", uniquement la carte 0 — Me présenter) */
 const marocGroups = ['presentation', 'projets'];
 Object.entries(DATA).forEach(([group, cards]) => {
   const type = marocGroups.includes(group) ? 'maroc' : 'univ';
   cards.forEach((card, i) => {
+    if (group === 'presentation' && i !== 0) return;
     const photos = (PHOTOS[group] && PHOTOS[group][i]) || [];
     card.pages.push(photoFeuille(type, photos));
   });
@@ -660,20 +713,17 @@ const observer = new IntersectionObserver((entries) => {
       if (e.target.classList.contains("reveal")) {
         e.target.classList.add("active");
       }
-      /* Animation snap-in sur les sections */
       /* Animation snap-in sur les sections — une seule fois */
-if (e.target.classList.contains("section") && !e.target.classList.contains("snapped")) {
-  e.target.classList.add("snapped");
-}
+      if (e.target.classList.contains("section") && !e.target.classList.contains("snapped")) {
+        e.target.classList.add("snapped");
+      }
       /* Nav active */
-      let currentSectionId = 'hero';
       const id = e.target.getAttribute("id");
-if (id) {
-  currentSectionId = id;   /* ← ajouté */
-  navAs.forEach(a => {
-    a.style.color = a.getAttribute("href") === `#${id}` ? "var(--gold-l)" : "";
-  });
-}
+      if (id) {
+        navAs.forEach(a => {
+          a.style.color = a.getAttribute("href") === `#${id}` ? "var(--gold-l)" : "";
+        });
+      }
     }
   });
 }, {
