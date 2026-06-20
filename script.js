@@ -303,58 +303,77 @@ const DATA = {
     ]}
   ],
 
-  /* ── 04 PASSEPORT CULTUREL ── */
+ /* ── 04 PASSEPORT CULTUREL ── style MAROC */
   projets: [
+    /* 0 — Semaine Internationale SPN */
     { pages: [
-      { t:"Projet 1 — Contexte", h: hMaroc("Projet 1 — Titre","Projet data · feuille 1 / 2") + `
-        <p>[Décris ton projet : ce que tu as construit, pourquoi, le contexte.]</p>
-        <p>[L'idée t'est venue comment ? Quel problème voulais-tu résoudre ?]</p>
-        <div class="modal-pills"><span>Python</span><span>Data</span></div>
+      { t:"Semaine Internationale — Contexte", h: hMaroc("Semaine Internationale","Sorbonne Paris Nord · feuille 1 / 2") + `
+        <p>Dans le cadre de ma 2ème année de BUT Science des données à la <strong>Sorbonne Paris Nord</strong>, j'ai participé à une semaine internationale entièrement conduite en anglais, rassemblant des étudiants venus des quatre coins de l'Europe.</p>
+        <p>L'objectif de cette semaine était de réaliser une <strong>SAÉ de data visualisation</strong> en équipe multiculturelle, confrontant différentes approches et méthodes au sein d'un groupe international. L'anglais était la seule langue autorisée, ce qui a rendu l'expérience encore plus immersive et formatrice.</p>
+        <p>L'année précédente, c'est le <strong>professeur de nos homologues européens</strong> qui était venu à l'IUT nous dispenser un cours, renforçant ainsi les liens pédagogiques entre établissements partenaires.</p>
+        <div class="modal-pills"><span>DataViz</span><span>Anglais</span><span>SAÉ</span><span>International</span></div>
       ` + fMaroc() },
-      { t:"Projet 1 — Détails", h: hMaroc("Détails & apprentissages","Projet data · feuille 2 / 2") + `
+      { t:"Semaine Internationale — Ce que j'en retiens", h: hMaroc("Ce que j'en retiens","Semaine Internationale · feuille 2 / 2") + `
         <ul>
-          ${li("[Stack technique utilisée]")}
-          ${li("[Défi principal rencontré]")}
-          ${li("[Ce que tu en as appris]")}
-          ${li("[Résultat ou impact]")}
+          ${li("Travailler intégralement en anglais sur un projet data réel, du recueil des données à la présentation finale.")}
+          ${li("Collaborer avec des étudiants européens aux approches différentes, ce qui enrichit la réflexion et ouvre de nouvelles perspectives.")}
+          ${li("Comprendre que la data visualisation est un langage universel, capable de dépasser les barrières linguistiques et culturelles.")}
+          ${li("[Ajoute ici d'autres apprentissages ou moments marquants de cette semaine]")}
         </ul>
-        <a href="#" class="modal-link">Voir sur GitHub →</a>
       ` + fMaroc() }
     ]},
+    /* 1 — Football */
     { pages: [
       { t:"Football — Passion", h: hMaroc("Ma passion pour le football","Feuille 1 / 3 · utilise les flèches →") + `
-        <p>Je pratique le football en club depuis mon plus jeune âge. Aujourd'hui encore, je suis licencié à l'ESP 18, où je suis coach de l'équipe U-16 cette année — avec qui nous avons décroché la montée, une fierté qui n'est pas rien.</p>
-        <p>[Décris ce que le football t'a appris : collectif, résilience, tactique, clubs suivis, joueurs préférés…]</p>
+        <p>[Décris ta passion : depuis quand, comment tu le vis, quel rôle ça joue dans ta vie, clubs suivis, joueurs préférés…]</p>
+        <p>Le football m'a appris [les valeurs que tu veux mentionner : collectif, résilience, tactique…].</p>
       ` + fMaroc() },
       { t:"Football — Maroc 2022", h: hMaroc("Maroc — Mondial Qatar 2022","Feuille 2 / 3") + `
         <p>Premier pays africain et arabe à atteindre les demi-finales d'une Coupe du Monde. Un parcours historique.</p>
         <p>[Décris ce que tu as ressenti, comment tu as vécu ce parcours, ce que ça représente pour toi personnellement…]</p>
       ` + fMaroc() },
       { t:"Football × Data", h: hMaroc("Football × Data","Feuille 3 / 3") + `
-        <p>Le lien entre football et analyse de données me semble évident : comprendre un match, évaluer un joueur, identifier des tendances, tout cela peut être renforcé par une approche rigoureuse basée sur les données.</p>
+        <p>[As-tu utilisé la data pour analyser le foot ? xG, heat maps, stats de possession, modèles de prédiction…]</p>
         <ul>
           ${li("[Clubs ou équipes que tu suis et analyses]")}
           ${li("[Projet ou analyse data autour du foot]")}
-          ${li("[Ton joueur ou coach préféré et pourquoi]")}
+          ${li("[Ton joueur ou coach préféré et pourquoi — tactiquement ou humainement]")}
         </ul>
       ` + fMaroc() }
     ]},
+    /* 2 — BUST IT WEEK Erasmus @ Leuven */
     { pages: [
-      { t:"Racines marocaines", h: hMaroc("Mes racines marocaines","Feuille 1 / 3 · utilise les flèches →") + `
-        <p>[Décris ton lien avec le Maroc : ville d'origine de ta famille, culture, langue, valeurs transmises…]</p>
-        <p>Être biculturel m'a appris [ouverture d'esprit, langues, vision du monde, richesse des échanges…]</p>
+      { t:"BUST IT WEEK — Contexte", h: hMaroc("BUST IT WEEK — KU Leuven, Belgique","Erasmus · Compétition internationale · feuille 1 / 3") + `
+        <p>Dans le cadre d'un échange Erasmus, j'ai participé à la <strong>BUST IT WEEK</strong> organisée par la <strong>KU Leuven</strong> en Belgique, une compétition internationale regroupant des étudiants en data science d'universités européennes partenaires.</p>
+        <p>Le défi : <strong>prédire le nombre de spectateurs</strong> attendus à un match sportif, à partir d'une base de données historique. L'enjeu était concret — aider le club à anticiper ses besoins en <strong>sécurité, en restauration et en logistique</strong> selon l'affluence estimée.</p>
+        <p>Toute la semaine s'est déroulée entièrement en anglais, de l'analyse des données à la présentation finale devant l'ensemble des équipes et un jury international.</p>
       ` + fMaroc() },
-      { t:"Ce qui m'inspire", h: hMaroc("Ce qui m'inspire","Feuille 2 / 3") + `
+      { t:"BUST IT WEEK — Démarche technique", h: hMaroc("Démarche & modélisation","BUST IT WEEK · feuille 2 / 3") + `
         <ul>
-          ${li("[Musique : gnawa, chaabi, rap marocain…]")}
-          ${li("[Architecture, villes : Fès, Marrakech, Casablanca…]")}
-          ${li("[Un auteur, un film, une série marocain·e qui compte pour toi]")}
-          ${li("[Cuisine, traditions, fêtes…]")}
+          ${li("Exploration de la base historique : nettoyage, analyse des variables, corrélations avec l'affluence.")}
+          ${li("Identification des indicateurs les plus prédictifs : adversaire, météo, jour de la semaine, résultats récents, matchs importants…")}
+          ${li("Modélisation Machine Learning — une première pour notre équipe sur un cas réel en compétition.")}
+          ${li("Développement d'une application interactive avec <strong>Streamlit</strong> pour visualiser les prédictions et explorer les données.")}
+          ${li("Présentation finale en anglais devant toutes les équipes et le jury international de la KU Leuven.")}
         </ul>
+        <div class="modal-pills"><span>Python</span><span>Machine Learning</span><span>Streamlit</span><span>Anglais</span><span>Erasmus</span></div>
       ` + fMaroc() },
-      { t:"Engagement & identité", h: hMaroc("Mon engagement","Feuille 3 / 3") + `
-        <p>[Comment tu combines tes deux cultures au quotidien, dans tes études, dans ta vision professionnelle…]</p>
-        <ul>${li("[Engagement 1]")} ${li("[Engagement 2]")}</ul>
+      { t:"BUST IT WEEK — Ce que j'en retiens", h: hMaroc("Ce que j'en retiens","BUST IT WEEK · feuille 3 / 3") + `
+        <p>Cette compétition a été une série de premières : première application du <strong>Machine Learning</strong> sur un cas professionnel réel, première utilisation de <strong>Streamlit</strong> pour déployer un outil interactif, et première présentation en anglais devant un jury international.</p>
+        <p>Au-delà des compétences techniques, cette semaine m'a confirmé que la data science est capable de répondre à des problématiques concrètes dans des contextes multiculturels et compétitifs.</p>
+        <div class="photo-feuille">
+          <div class="photo-slot main filled">
+            <img src="images/IMG_2398.jpeg" alt="BUST IT WEEK — Leuven"/>
+          </div>
+          <div class="photo-slot">
+            <input type="file" accept="image/*" title="Ajouter une photo">
+            <div class="photo-inner"><p style="font-size:1.6rem;margin:0">+</p><span>Photo 2</span></div>
+          </div>
+          <div class="photo-slot">
+            <input type="file" accept="image/*" title="Ajouter une photo">
+            <div class="photo-inner"><p style="font-size:1.6rem;margin:0">+</p><span>Photo 3</span></div>
+          </div>
+        </div>
       ` + fMaroc() }
     ]}
   ],
