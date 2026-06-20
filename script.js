@@ -55,7 +55,7 @@ const DATA = {
       { t:"Me présenter", h: hMaroc("Qui suis-je ?","Présentation") + `
         <p>Étudiant en 2ème année de BUT Sciences des Données, une formation pluridisciplinaire qui me permet d'acquérir des compétences solides en statistiques, programmation, SQL, traitement et visualisation de données, mais aussi en gestion de projet et en communication scientifique.</p>
         <p>Je suis passionné depuis longtemps par les chiffres et la logique, surtout lorsqu'ils s'appliquent à des situations concrètes. Ce qui me caractérise aujourd'hui, c'est ma volonté de mobiliser ces compétences de manière rigoureuse et réfléchie pour comprendre, modéliser et résoudre des problématiques réelles.</p>
-        <p>Je suis licencié à l'ESP 18. Cette année, je suis coach de l'équipe U-16, avec qui nous avons décroché la montée, une fierté qui n'est pas rien.</p>
+        <p>Je suis licencié à l'ESP 18. Cette année, je suis coach de l'équipe U-16, avec qui nous avons décroché la montée — une fierté qui n'est pas rien.</p>
         <div class="photo-feuille">
           <div class="photo-slot main filled"><img src="images/IMG_6773.jpeg" alt="Mohammed"/></div>
           <div class="photo-slot filled"><img src="images/IMG_2757.jpeg" alt="Mohammed"/></div>
@@ -92,7 +92,7 @@ const DATA = {
     ]},
     { pages: [
       { t:"Objectifs professionnels", h: hMaroc("Objectifs professionnels","Vision carrière") + `
-        <p>Je souhaite devenir data analyst dans le monde du sport, un domaine qui me passionne profondément. J'ai grandi avec le football, que je pratique en club depuis mon plus jeune âge. Aujourd'hui encore, je suis licencié à l'ESP 18, où je suis coach de l'équipe U-16 cette année avec qui nous avons décroché la montée.</p>
+        <p>Je souhaite devenir data analyst dans le monde du sport, un domaine qui me passionne profondément. J'ai grandi avec le football, que je pratique en club depuis mon plus jeune âge. Aujourd'hui encore, je suis licencié à l'ESP 18, où je suis coach de l'équipe U-16 cette année — avec qui nous avons décroché la montée.</p>
         <p>Le lien avec l'analyse de données me semble évident : comprendre un match, évaluer un joueur, identifier des tendances, tout cela peut être renforcé par une approche rigoureuse basée sur les données.</p>
       ` + fMaroc() }
     ]}
@@ -362,29 +362,59 @@ const DATA = {
   /* ── 05 STAGE ── */
   stage: [
     { pages: [
-      { t:"Stage — Contexte", h: hUniv("Intitulé du poste","Stage · feuille 1 / 4") + `
-        <p><strong>[Ton intitulé de poste]</strong> chez <strong>[Nom de l'entreprise]</strong> — [Ville] · [Durée]</p>
-        <p>[Décris ici le contexte : type de structure, taille de l'équipe data, ton positionnement dans l'équipe.]</p>
+      { t:"Stage — Contexte & structure", h: hUniv("Chargé de projets en analyse et automatisation des données","Stage · UFCV · feuille 1 / 5") + `
+        <p><strong>Chargé de projets en analyse et automatisation des données</strong> chez <strong>UFCV</strong> (Union Française des Centres de Vacances) — Pantin (93) · 44 jours · 13 avril au 18 juin 2026.</p>
+        <p>L'UFCV est une association nationale de jeunesse et d'éducation populaire à but non lucratif, reconnue d'utilité publique. En 2025 : 1 621 salariés, 6 500 bénévoles, 120 000 personnes accompagnées, 12 délégations régionales.</p>
+        <p>J'ai intégré le pôle <strong>DAMAC</strong> (Direction des Activités, Marketing et Communication), en binôme avec un autre stagiaire. L'association ne disposait pas de pôle data dédié, ce qui m'a donné une réelle autonomie sur l'ensemble des missions.</p>
+        <p><strong>Problématique guidant le stage :</strong> comment exploiter au mieux les données de l'association, en les rendant accessibles et compréhensibles pour tous, tout en automatisant un maximum de tâches ?</p>
+        <div class="modal-pills"><span>Excel</span><span>Power Query</span><span>VBA</span><span>Python</span><span>Streamlit</span><span>Jedox</span></div>
       ` + fUniv() },
-      { t:"Stage — Missions", h: hUniv("Missions réalisées","Stage · feuille 2 / 4") + `
+
+      { t:"Mission 1 — Tableaux de bord fréquentation", h: hUniv("Tableaux de bord de suivi de l'activité territoriale","Stage · feuille 2 / 5 · Encadrante : Mme Émeline ADANS") + `
+        <p>Conception sous Excel de tableaux de bord de suivi de la fréquentation et de la facturation des activités territoriales, destinés à servir de maquette avant intégration dans <strong>Jedox</strong>.</p>
         <ul>
-          ${li("[Mission 1 — ce que tu as fait concrètement, outils utilisés, résultats]")}
-          ${li("[Mission 2 — livrable produit, responsabilité]")}
-          ${li("[Mission 3 — outil ou technique mis en œuvre sur le terrain]")}
-          ${li("[Mission 4 — collaboration transverse, relation avec d'autres équipes]")}
+          ${li("<strong>Préparation des données :</strong> nettoyage et structuration avec Power Query (suppression des colonnes inutiles, conversion des champs, création de colonnes calculées, gestion des valeurs manquantes avec \"non renseigné\").")}
+          ${li("<strong>12 KPI construits :</strong> jours de présence, absences justifiées/non justifiées, taux de présence par réservation et par inscription, âge moyen, quotient familial moyen.")}
+          ${li("<strong>8 graphiques :</strong> répartitions par genre, catégorie d'âge, handicap, mode de règlement, lieu de résidence, top 5 des activités — avec 5 filtres interactifs.")}
+          ${li("<strong>Macro VBA développée :</strong> détection automatique des individus avec un taux de présence/absence supérieur à 100 % (cas de surprésence identifiés lors du nettoyage).")}
+          ${li("<strong>Feuille descriptive :</strong> documentation de chaque indicateur, méthode de calcul, choix méthodologiques et limites observées.")}
         </ul>
+        <div class="modal-pills"><span>Excel</span><span>Power Query</span><span>VBA</span><span>TCD</span><span>KPI</span></div>
       ` + fUniv() },
-      { t:"Stage — Stack technique", h: hUniv("Stack technique","Stage · feuille 3 / 4") + `
-        <p>[Décris les outils, langages et technologies utilisés pendant le stage.]</p>
-        <div class="modal-pills"><span>[Python]</span><span>[SQL]</span><span>[Tableau / Power BI]</span><span>[Autre outil]</span></div>
-      ` + fUniv() },
-      { t:"Stage — Apprentissages", h: hUniv("Ce que j'ai appris","Stage · feuille 4 / 4") + `
+
+      { t:"Mission 2 — Indicateurs de performance budgétaire", h: hUniv("Indicateurs de gestion et de performance budgétaire","Stage · feuille 3 / 5 · Encadrante : Mme Claire VERRAEST") + `
+        <p>Analyse d'une base de données contenant le budget et le réalisé de l'association entre 2022 et 2026, pour produire des indicateurs de gestion destinés à être intégrés dans Jedox.</p>
         <ul>
-          ${li("[Compétence technique principale acquise]")}
-          ${li("[Compétence professionnelle — communication, gestion de projet…]")}
-          ${li("[Découverte du monde de l'entreprise]")}
-          ${li("[En quoi ce stage confirme tes objectifs professionnels]")}
+          ${li("<strong>Consolidation :</strong> structuration des données via RECHERCHEX, fusion des bases budget/réalisé de structures différentes, allègement du fichier Excel.")}
+          ${li("<strong>Analyse des tendances :</strong> évolution des charges, produits et marges sur 2022–2026, comparaison budget/réalisé pour identifier les écarts.")}
+          ${li("<strong>Analyse par activité :</strong> ratio charges/produits, taux de maîtrise des charges — indicateurs relatifs permettant des comparaisons à la même échelle indépendamment de la taille.")}
+          ${li("<strong>KPI de note globale :</strong> indicateur synthétique combinant plusieurs KPI selon une pondération paramétrable, particulièrement apprécié par Mme Verraest.")}
+          ${li("<strong>Analyse complémentaire :</strong> part des trois charges principales dans le total des charges par région, pour évaluer la maîtrise des coûts.")}
         </ul>
+        <div class="modal-pills"><span>Excel</span><span>RECHERCHEX</span><span>KPI</span><span>Jedox</span></div>
+      ` + fUniv() },
+
+      { t:"Mission 3 — Documentation technique", h: hUniv("Documentation technique des fichiers existants","Stage · feuille 4 / 5 · Encadrant : M. Cyril GAFFET") + `
+        <p>Documentation détaillée des fichiers Excel automatisés par un précédent stagiaire (Thierno), utilisés par les équipes du service VIF (Veille, Innovation et Financement), afin de permettre leur compréhension et maintenance autonome.</p>
+        <ul>
+          ${li("Prise de connaissance des fichiers (raccourci, centralisé, VAO, VEJ) en s'appuyant sur le rapport de stage de Thierno et les explications de M. Gaffet.")}
+          ${li("Structuration de la documentation : page de garde, contexte, parties détaillées, glossaire et annexes.")}
+          ${li("Description de chaque feuille, formule clé, tableau croisé dynamique et automatisation mise en place.")}
+          ${li("Retour positif de M. Gaffet sur le travail rendu.")}
+        </ul>
+        <div class="modal-pills"><span>Excel</span><span>VBA</span><span>Documentation</span></div>
+      ` + fUniv() },
+
+      { t:"Mission 4 — Interface Streamlit & bilan", h: hUniv("Analyse commerciale et interface interactive — Bilan","Stage · feuille 5 / 5") + `
+        <p>Analyse des variables d'une base de données commerciale liée aux séjours, et développement d'une interface interactive avec <strong>Streamlit (Python)</strong> pour rendre les analyses accessibles aux équipes sans compétences en programmation.</p>
+        <ul>
+          ${li("<strong>Enrichissement de la base :</strong> création de nouvelles variables dérivées, intégration de méthodes statistiques avancées (corrélation de Pearson, R², V de Cramér).")}
+          ${li("<strong>Interface Streamlit en 5 pages :</strong> explorer une variable, croiser deux variables, profil client, analyse des prix, qualité des données.")}
+          ${li("<strong>Détection automatique du type de variables</strong> pour appliquer le test statistique approprié, avec explications en français compréhensibles par des non-statisticiens.")}
+          ${li("<strong>Documentation complète :</strong> installation Python, utilisation VS Code, lancement de l'application, résolution des problèmes fréquents.")}
+        </ul>
+        <p style="margin-top:16px"><strong>Ce que je retiens :</strong> ce stage confirme mon intérêt pour les métiers de la donnée au service des organisations, et tout particulièrement pour la question de l'accessibilité des outils d'analyse à des publics non techniques.</p>
+        <div class="modal-pills"><span>Python</span><span>Streamlit</span><span>Pandas</span><span>Scipy</span><span>Numpy</span></div>
       ` + fUniv() }
     ]}
   ],
