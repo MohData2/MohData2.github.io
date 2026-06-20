@@ -362,18 +362,16 @@ const DATA = {
         <p>Cette compétition a été une série de premières : première application du <strong>Machine Learning</strong> sur un cas professionnel réel, première utilisation de <strong>Streamlit</strong> pour déployer un outil interactif, et première présentation en anglais devant un jury international.</p>
         <p>Au-delà des compétences techniques, cette semaine m'a confirmé que la data science est capable de répondre à des problématiques concrètes dans des contextes multiculturels et compétitifs.</p>
         <div class="photo-feuille">
-          <div class="photo-slot main filled">
-            <img src="images/IMG_2398.jpeg" alt="BUST IT WEEK — Leuven"/>
-          </div>
-          <div class="photo-slot">
-            <input type="images/17170047-129b-4989-bb72-567439695a19.jpeg" accept="image/*" title="Ajouter une photo">
-            <div class="photo-inner"><p style="font-size:1.6rem;margin:0">+</p><span>Photo 2</span></div>
-          </div>
-          <div class="photo-slot">
-            <input type="file" accept="image/*" title="Ajouter une photo">
-            <div class="photo-inner"><p style="font-size:1.6rem;margin:0">+</p><span>Photo 3</span></div>
-          </div>
-        </div>
+  <div class="photo-slot main filled">
+    <img src="images/IMG_2398.jpeg" alt="BUST IT WEEK — Leuven"/>
+  </div>
+  <div class="photo-slot filled">
+    <img src="images/17170047-129b-4989-bb72-567439695a19.jpeg" alt="BUST IT WEEK — Leuven"/>
+  </div>
+  <div class="photo-slot filled">
+    <img src="images/IMG_2147.jpeg" alt="BUST IT WEEK — Leuven"/>
+  </div>
+</div>
       ` + fMaroc() }
     ]}
   ],
