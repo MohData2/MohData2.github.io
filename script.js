@@ -414,7 +414,7 @@ const DATA = {
     <img src="images/17170047-129b-4989-bb72-567439695a19.jpeg" alt="BUST IT WEEK — Leuven"/>
   </div>
   <div class="photo-slot filled">
-    <img src="images/IMG_2147.jpeg" alt="BUST IT WEEK — Leuven"/>
+    <img src="images/IMG_2394.jpeg" alt="BUST IT WEEK — Leuven"/>
   </div>
 </div>
       ` + fMaroc() }
