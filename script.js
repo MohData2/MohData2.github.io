@@ -355,9 +355,9 @@ const DATA = {
       { t:"Semaine Internationale — Photos", h: hMaroc("Moments de la semaine","Semaine Internationale · feuille 3 / 3") + `
         <p>Quelques souvenirs de cette semaine internationale à la Sorbonne Paris Nord.</p>
         <div class="photo-feuille">
-          <div class="photo-slot main filled"><img src="images/SEMAINE_INTER_1.jpeg" alt="Semaine Internationale SPN"/></div>
-          <div class="photo-slot filled"><img src="images/SEMAINE_INTER_2.jpeg" alt="Semaine Internationale SPN"/></div>
-          <div class="photo-slot filled"><img src="images/SEMAINE_INTER_3.jpeg" alt="Semaine Internationale SPN"/></div>
+          <div class="photo-slot main filled"><img src="images/IMG_3313.jpeg" alt="Semaine Internationale SPN"/></div>
+          <div class="photo-slot filled"><img src="images/IMG_3328.jpeg" alt="Semaine Internationale SPN"/></div>
+          <div class="photo-slot filled"><img src="images/IMG_3357.jpeg" alt="Semaine Internationale SPN"/></div>
         </div>
       ` + fMaroc() }
     ]},
