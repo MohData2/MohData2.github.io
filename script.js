@@ -380,9 +380,9 @@ const DATA = {
       { t:"Éducateur de foot — Photos", h: hMaroc("Sur le terrain","Feuille 3 / 3") + `
         <p>Quelques souvenirs de cette saison avec les U-16 de l'ESP 18 et de la montée décrochée en fin d'année.</p>
         <div class="photo-feuille">
-          <div class="photo-slot main filled"><img src="images/FOOT_1.jpeg" alt="U-16 ESP 18"/></div>
-          <div class="photo-slot filled"><img src="images/FOOT_2.jpeg" alt="U-16 ESP 18"/></div>
-          <div class="photo-slot filled"><img src="images/FOOT_3.jpeg" alt="U-16 ESP 18"/></div>
+          <div class="photo-slot main filled"><img src="images/IMG_2756.jpeg" alt="U-16 ESP 18"/></div>
+          <div class="photo-slot filled"><img src="images/IMG_2757.jpeg" alt="U-16 ESP 18"/></div>
+          <div class="photo-slot filled"><img src="images/IMG_2703.jpeg" alt="U-16 ESP 18"/></div>
         </div>
       ` + fMaroc() }
     ]},
